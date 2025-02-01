@@ -7,6 +7,7 @@ import Footer from "../components/footer";
 import Services from "../components/services";
 import About from "../components/about";
 import Resume from "../components/resumeSection";
+import MyRecentWork from "../components/MyRecentWork";
 
 function HomePage() {
   return (
@@ -22,6 +23,7 @@ function HomePage() {
         <Services />
         <About />
         <Resume />
+        <MyRecentWork/>
         <Footer />
       </div>
     </>

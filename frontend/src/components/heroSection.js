@@ -55,12 +55,12 @@ const HeroSection = () => {
     
   const Technologies = [
     {
-      title: "html",
+      title: "Html",
       icon: <FaHtml5 />,
       color: "#E4522D",
     },
     {
-      title: "React",
+      title: "React Js",
       icon: <FaReact />,
       color: "#57D3F5",
     },
@@ -112,10 +112,14 @@ const HeroSection = () => {
           className=" relative h-fit md:h-[60vh] flex flex-col gap-2 bg-gray-50 shadow-xl dark:bg-gray-900 rounded-3xl dark:shadow-lg px-3 py-2 md:px-6 md:py-4 border border-gray-500 "
         >
           <div className="absolute top-4 right-6 md:right-10">
-           <AuthStar/>
+            <AuthStar />
           </div>
           <div className="absolute top-14 md:top-20 right-2 md:right-5 ">
-            <img src="/images/star.png" alt="" className="w-8 h-8 md:w-10 md:h-10" />
+            <img
+              src="/images/star.png"
+              alt=""
+              className="w-8 h-8 md:w-10 md:h-10"
+            />
           </div>
           <div className="flex gap-4 p-3 bg-custom-gradient cursor-pointer text-white rounded-xl w-fit items-center mb-2 mt-2 shadow-md">
             <div className="relative md:w-12 md:h-12">
@@ -232,10 +236,14 @@ const HeroSection = () => {
           {Technologies.map((tech) => (
             <div
               key={tech.title}
-              className={`flex gap-2 p-3 text-4xl md:text-5xl border border-gray-500 bg-gray-600 dark:bg-gray-800 shadow-xl rounded-lg text- mb-2 scale-100 transition-transform duration-500 hover:scale-110 `}
+              className="group relative flex gap-2 p-3 text-4xl md:text-5xl border border-gray-500 bg-gray-600 dark:bg-gray-800 shadow-xl rounded-lg mb-2 scale-100 transition-transform duration-500 hover:scale-110"
               style={{ color: tech.color }}
             >
               {tech.icon}
+              {/* Tooltip (Hidden by default, shown on hover) */}
+              <div className="absolute bottom-16 left-1/2 -translate-x-1/2 bg-custom-gradient text-white  text-sm px-4 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap max-w-xs overflow-hidden text-ellipsis">
+                {tech.title}
+              </div>
             </div>
           ))}
         </div>

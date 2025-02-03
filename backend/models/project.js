@@ -14,6 +14,10 @@ const projectSchema = new mongoose.Schema({
     type: [String], // Array of strings to store tech stack used
     required: true,
   },
+  tags: {
+    type: [String], // Array of strings to store tech stack used
+    
+  },
   liveDemoLink: {
     type: String, // URL for live demo
     validate: {

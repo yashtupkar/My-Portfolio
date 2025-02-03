@@ -10,8 +10,10 @@ connectDB();
 app.use(cors());
 app.use(express.json());
 const Project = require("./routes/project");
+const Testimonial = require("./routes/testimonial");
 
 app.use("/api/v1", Project);
+app.use("/api/v1", Testimonial);
 
 
 

@@ -37,7 +37,7 @@ const testimonialSchema = new mongoose.Schema(
   }
 );
 
-// Create and export the model
+
 const Testimonial = mongoose.model("Testimonial", testimonialSchema);
 
 module.exports = Testimonial;

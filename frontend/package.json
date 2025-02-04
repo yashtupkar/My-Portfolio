@@ -5,10 +5,13 @@
   "dependencies": {
     "@testing-library/react": "^16.2.0",
     "aos": "^2.3.4",
+    "axios": "^1.7.9",
+    "clsx": "^2.1.1",
     "cra-template": "1.2.0",
     "react": "^18.3.1",
     "react-avatar": "^5.0.3",
     "react-dom": "^18.3.1",
+    "react-dropzone": "^14.3.5",
     "react-hot-toast": "^2.5.1",
     "react-icons": "^5.4.0",
     "react-router-dom": "^7.1.5",

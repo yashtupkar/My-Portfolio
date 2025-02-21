@@ -13,6 +13,8 @@ import { IoPaperPlane } from "react-icons/io5";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import AuthStar from './AuthStar';
+import axios from 'axios'
+
 
 
 
@@ -25,34 +27,87 @@ const HeroSection = () => {
     });
   }, []);
 
+  const [heroData, setHeroData] = useState();
+
+  useEffect(() => {
+    let isMounted = true;
+
+    const fetchHero = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:1000/api/v1/get-hero"
+        );
+        if (isMounted) {
+          if (response.data && response.data.length > 0) {
+            setHeroData(response.data[0]);
+            console.log(response.data[0]);
+          }
+        }
+      } catch (err) {
+        console.error("Error getting hero:", err);
+      }
+    };
+
+    fetchHero();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+    // const SocialLinks = [
+    //   {
+    //     title: "Instagram",
+    //     icon: <BsInstagram size={20} />,
+    //     url: ``,
+    //   },
+    //   {
+    //     title: "Linkedin",
+    //     icon: <IoLogoLinkedin size={20} />,
+    //     url: ``,
+    //   },
+    //   {
+    //     title: "Github",
+    //     icon: <BsGithub size={20} />,
+    //     url: "",
+    //   },
+    //   {
+    //     title: "Fiver",
+    //     icon: <TbBrandFiverr size={20} />,
+    //     url: "https://medium.com/@example",
+    //   },
+    //   {
+    //     title: "Twitter",
+    //     icon: <FaSquareXTwitter size={20} />,
+    //     url: "https://twitter.com/example",
+    //   },
+    // ];
     const SocialLinks = [
       {
         title: "Instagram",
         icon: <BsInstagram size={20} />,
-        url: "https://www.instagram.com/example",
+        url: heroData?.instagram || "", // Using optional chaining and default to empty string
       },
       {
-        title: "Linkdin",
+        title: "Linkedin",
         icon: <IoLogoLinkedin size={20} />,
-        url: "https://www.linkedin.com/in/yash-tupkar-4696a5290/",
+        url: heroData?.linkedin || "",
       },
       {
         title: "Github",
         icon: <BsGithub size={20} />,
-        url: "https://github.com/yashtupkar",
+        url: heroData?.github || "",
       },
       {
         title: "Fiver",
         icon: <TbBrandFiverr size={20} />,
-        url: "https://medium.com/@example",
+        url: heroData?.fiver || "https://medium.com/@example", // Default if no fiver URL
       },
       {
         title: "Twitter",
         icon: <FaSquareXTwitter size={20} />,
-        url: "https://twitter.com/example",
+        url: heroData?.twitter || "https://twitter.com/example", // Default if no twitter URL
       },
     ];
-    
   const Technologies = [
     {
       title: "Html",
@@ -118,7 +173,7 @@ const HeroSection = () => {
             <img
               src="/images/star.png"
               alt=""
-              className="w-8 h-8 md:w-10 md:h-10"
+              className="w-8 h-8 floating-animation md:w-10 md:h-10"
             />
           </div>
           <div className="flex gap-4 p-3 bg-custom-gradient cursor-pointer text-white rounded-xl w-fit items-center mb-2 mt-2 shadow-md">
@@ -150,15 +205,15 @@ const HeroSection = () => {
             , It's me
           </h1>
           <h1 className="text-3xl md:text-5xl font-extrabold">
-            <span className="gradient-text">Yash</span> Tupkar
+            <span className="gradient-text mr-2">
+              {heroData?.name?.split(" ")[0]}
+            </span>
+            {heroData?.name?.split(" ")[1]}
           </h1>
 
           <AnimatedText />
-          <p className="text-sm md:text-base text-gray-500 dark:text-gray-400">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. At facere
-            error architecto alias tempore aut, accusamus quo beatae nesciunt
-            commodi eum dicta pariatur magnam debitis id, veritatis, nobis
-            voluptas eaque.
+          <p className="text-sm md:text-base h-20 text-gray-500 dark:text-gray-400">
+            {heroData?.bio}
           </p>
           <div className="flex w-full gap-4 mt-4 mb-4 md:mb-0 ">
             <button className="bg-custom-gradient text-sm md:text-base font-semibold py-3 transition-all duration-300 ease-in-out transform hover:scale-105 px-6 rounded-xl text-white shadow-md">
@@ -203,7 +258,7 @@ const HeroSection = () => {
           <div className="mt-3">
             <h1 className="flex items-center text-sm mb-2 sm:text-xl font-semibold gap-2 text-gray-700 dark:text-gray-400">
               <TfiEmail /> Email -
-              <span className="underline">yashtupkar6@gmail.com</span>
+              <span className="underline">{heroData?.email}</span>
             </h1>
           </div>
         </div>
@@ -215,7 +270,10 @@ const HeroSection = () => {
         className="h-full w-fit hidden  md:flex shadow-xl relative group items-center justify-center rounded-3xl overflow-hidden border border-gray-500"
       >
         <img
-          src="/images/hero.png"
+          src={
+            `http://localhost:1000/uploads/${heroData?.heroImg}` ||
+            "/images/hero.png"
+          }
           alt=""
           className=" h-full rounded-3xl w-full  object-cover  shadow-lg transform transition-transform duration-500 group-hover:scale-110"
         />
@@ -236,7 +294,7 @@ const HeroSection = () => {
           {Technologies.map((tech) => (
             <div
               key={tech.title}
-              className="group relative flex gap-2 p-3 text-4xl md:text-5xl border border-gray-500 bg-gray-600 dark:bg-gray-800 shadow-xl rounded-lg mb-2 scale-100 transition-transform duration-500 hover:scale-110"
+              className="group relative flex gap-2 p-3 shaking-animation  text-4xl md:text-5xl border border-gray-500 bg-gray-600 dark:bg-gray-800 shadow-xl rounded-lg mb-2 scale-100 transition-transform duration-500 hover:scale-110"
               style={{ color: tech.color }}
             >
               {tech.icon}

@@ -120,12 +120,12 @@ const AuthStar = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center ">
         <div onClick={handleTap} className="relative">
           <img
             src="/images/star.png"
             alt="Star"
-            className={`w-14 h-14 md:w-20 md:h-20 cursor-pointer transition-transform ${
+            className={`w-14 h-14 md:w-20 md:h-20 cursor-pointer transition-transform floating-animation ${
               tapCount > 0 ? "scale-110 animate-pulse" : "scale-100"
             }`}
           />

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@tailwindcss/line-clamp": "^0.4.4",
     "@testing-library/react": "^16.2.0",
     "aos": "^2.3.4",
     "axios": "^1.7.9",

@@ -3,54 +3,60 @@ const mongoose = require("mongoose");
 const projectSchema = new mongoose.Schema({
   title: {
     type: String,
-    required: true,
+    required: [true, "Project title is required"],
     trim: true,
   },
   description: {
     type: String,
-    required: true,
+    required: [true, "Project description is required"],
+    trim: true,
   },
   technologies: {
     type: [String], // Array of strings to store tech stack used
-    required: true,
+    required: [true, "At least one technology is required"],
   },
   tags: {
-    type: [String], // Array of strings to store tech stack used
-    
+    type: String, // Optional tags array
+     // Ensures tags field exists
   },
   liveDemoLink: {
-    type: String, // URL for live demo
+    type: String,
+    trim: true,
     validate: {
       validator: function (v) {
-        return /^(ftp|http|https):\/\/[^ "]+$/.test(v); // Valid URL regex
+        return !v || /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/.test(v);
       },
       message: (props) => `${props.value} is not a valid URL!`,
     },
   },
   githubLink: {
-    type: String, // URL for GitHub repository
+    type: String,
+    trim: true,
     validate: {
       validator: function (v) {
-        return /^(ftp|http|https):\/\/[^ "]+$/.test(v); // Valid URL regex
+        return !v || /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/.test(v);
       },
       message: (props) => `${props.value} is not a valid URL!`,
     },
   },
   imageUrl: {
-    type: String, // URL of the project's image
-    validate: {
-      validator: function (v) {
-        return /^(ftp|http|https):\/\/[^ "]+$/.test(v); // Valid URL regex
-      },
-      message: (props) => `${props.value} is not a valid URL!`,
-    },
+    type: String, // Can be a URL or local file path
+    trim: true,
+  },
+  companyName: {
+    type: String,
+    trim: true,
+  },
+  display: {
+    type: Boolean,
+    default: false,
   },
   createdAt: {
     type: Date,
-    default: Date.now, // Automatically add the creation date
+    default: Date.now, // Automatically sets creation date
   },
 });
 
+// Create & Export the Model
 const Project = mongoose.model("Project", projectSchema);
-
 module.exports = Project;

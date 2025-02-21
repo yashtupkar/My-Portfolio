@@ -1,35 +1,40 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 
 const About = () => {
-     const statsData = [
-       { value: "10", label: "Projects" },
-       { value: "1.2k+", label: "Happy clients" },
-       { value: "4+", label: "Years of experience" },
-     ];
-  return (
-    <div className="relative flex flex-col md:flex-row h-fit md:h-[90vh] md:border-2 md:border-gray-700 rounded-3xl items-center gap-2 mt-10">
-      <div className="absolute top-10 right-10 w-20 h-20 hidden md:block">
-        <img src="/images/star.png" alt="" className="w-20 h-20" />
-      </div>
+  const [aboutMe, setAboutMe] = useState("");
 
-      {/* <div data-aos="zoom-out-right" className="w-full md:w-1/2">
-        <div className="w-full h-full rounded-full flex justify-center items-center">
-          <img
-            src="/images/about.png"
-            alt="Yash Tupkar"
-            className="rounded-full"
-          />
-        </div>
-      </div> */}
+    const fetchAboutMe = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:1000/api/v1/get-aboutMe"
+        );
+        setAboutMe(response.data[0]);
+        console.log(response.data[0]);
+      } catch (error) {
+        console.error("Error fetching about me data:", error);
+      }
+    };
+
+    useEffect(() => {
+      fetchAboutMe();
+    }, []); 
+   
+  return (
+    <div className="relative flex flex-col md:flex-row h-fit md:h-[90vh] md:border-2 border-gray-300 md:dark:border-gray-700 rounded-3xl items-center gap-2 mt-10">
+      <div className="absolute top-10 right-10 w-20 h-20 hidden md:block">
+        <img
+          src="/images/star.png"
+          alt=""
+          className="w-20 h-20 floating-animation"
+        />
+      </div>
       <div data-aos="zoom-out-right" className="w-full md:w-1/2">
-        <div
-          className="w-full h-full rounded-full flex justify-center items-center relative group cursor-pointer"
-         
-        >
+        <div className="w-full h-full rounded-full flex justify-center items-center relative group cursor-pointer">
           <img
-            src="/images/about.png"
+            src={ `http://localhost:1000/uploads/${aboutMe?.profileImage}`}
             alt="Yash Tupkar"
-            className="rounded-full transition-all duration-300 ease-in-out transform group-hover:scale-110 group-hover:rotate-12"
+            className="rounded-full transition-all  duration-300 ease-in-out transform group-hover:scale-110 group-hover:rotate-12"
           />
 
           {/* Ripple Effect */}
@@ -38,7 +43,7 @@ const About = () => {
           {/* Hover Text Popup */}
           <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <p className="bg-custom-gradient text-white p-2 rounded-xl shadow-md text-sm md:text-lg font-semibold">
-              Yash Tupkar – Web Developer
+              {aboutMe?.name} – Web Developer
             </p>
           </div>
         </div>
@@ -60,20 +65,18 @@ const About = () => {
           I'm
         </h1>
         <h1 className="text-3xl md:text-6xl font-bold mt-2 md:mt-4">
-          <span className="gradient-text">Yash</span> Tupkar, <br />
+          <span className="gradient-text">{aboutMe?.name?.split(" ")[0]}</span>{" "}
+          {aboutMe?.name?.split(" ")[1]}, <br />
           <span>Full Stack Web Developer</span>
         </h1>
         <h1 className="text-2xl md:text-4xl font-semibold mt-2 md:mt-4">
           Based in India
         </h1>
         <p className="text-sm md:text-base mt-2 md:mt-4 text-gray-600 dark:text-gray-500">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit cum
-          quidem reprehenderit officiis, doloremque sed. Fugit quod, quo, dolor
-          harum laborum beatae a voluptatibus velit similique quasi saepe
-          dolorum quisquam?
+          {aboutMe?.bio}
         </p>
         <div className="flex gap-6 items-center mt-4">
-          {statsData.map((stat, index) => (
+          {aboutMe?.stats?.map((stat, index) => (
             <div
               key={index}
               className="flex flex-col items-center justify-center"

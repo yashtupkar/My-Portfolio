@@ -103,22 +103,19 @@ router.put("/update-hero-details/:id", async (req, res) => {
     }
 });
 
-//get hero details
+//get all available
+router.get("/get-hero", async (req, res) => { 
+  try {
+    const hero = await HeroSchema.find();
+    res.json(hero);
+    
+  } catch (error) {
+      console.error(error.message);
+      res.status(500).send("Server Error");
+  }
+})
 
-router.get("/get-hero-details/:id", async (req, res) => {
-    try {
-        const { id } = req.params;
-        const heroSchema = await HeroSchema.findById(id);
-        
-        if (!heroSchema) {
-            return res.status(404).json({ message: "Hero not found" });
-        }
-        
-        res.json(heroSchema);
-    } catch (error) {
-        console.error(error);
-        res.status(500).send("Server Error");
-    }
-});
+
+
 
 module.exports = router;

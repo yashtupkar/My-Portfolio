@@ -8,6 +8,8 @@ import Services from "../components/services";
 import About from "../components/about";
 import Resume from "../components/resumeSection";
 import MyRecentWork from "../components/MyRecentWork";
+import HorizontalScroll from "../components/HorizontalScroll";
+import TestimonialSection from "../components/testimonialSection";
 
 function HomePage() {
   return (
@@ -23,7 +25,8 @@ function HomePage() {
         <Services />
         <About />
         <Resume />
-        <MyRecentWork/>
+        <MyRecentWork />
+     <TestimonialSection/>
         <Footer />
       </div>
     </>

@@ -12,13 +12,15 @@ connectDB();
 const Project = require("./routes/project");
 const Hero = require("./routes/heroSection");
 const Testimonial = require("./routes/testimonial");
+const AboutMe = require("./routes/aboutMe");
 app.use(cors());
 app.use(express.json());
 
 
-
+app.use("/api/v1", AboutMe);
 app.use("/api/v1", Project);
 app.use("/api/v1", Hero);
+
 app.use("/api/v1", Testimonial);
 
 
@@ -33,7 +35,7 @@ app.post("/upload", upload.single("file"), (req, res) => {
         return res.status(400).json({ error: "No file uploaded" });
     }
 
-    res.json({ filePath: `/uploads/${req.file.filename}` });
+    res.json({ filePath: `${req.file.filename}` });
 });
 
 

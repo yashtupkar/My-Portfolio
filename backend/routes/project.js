@@ -5,15 +5,30 @@ const Project = require("../models/project");
 router.post("/add-project", async (req, res) => {
     try {
         const {
-            title,
-            description,
-            technologies,
-            tags,
-            liveDemoLink,
-            imageUrl,
-            githubLink,
+          title,
+          description,
+          technologies,
+          tags,
+          liveDemoLink,
+          imageUrl,
+          githubLink,
+          companyName,
         } = req.body;
         
+                if (
+                  !title ||
+          !description ||
+          !technologies ||
+         
+          !liveDemoLink||
+          !imageUrl||
+          !githubLink
+        
+                ) {
+                  return res
+                    .status(400)
+                    .json({ message: "Missing required fields" });
+                }
         //check project is alreay available
         const projectExists = await Project.findOne({ title });
         if (projectExists) {
@@ -21,13 +36,14 @@ router.post("/add-project", async (req, res) => {
         }
         
         const project = new Project({
-            title,
-            description,
-            technologies,
-            tags,
-            liveDemoLink,
-            imageUrl,
-            githubLink,
+          title,
+          description,
+          technologies,
+          tags,
+          liveDemoLink,
+          imageUrl,
+          githubLink,
+          companyName,
         });
         
         await project.save();
@@ -47,16 +63,20 @@ router.put("/update-project/:id", async (req, res) => {
     try {
         const { id } = req.params;
         const {
-            title,
-            description,
-            technologies,
-            tags,
-            liveDemoLink,
-            imageUrl,
-            githubLink,
+          title,
+          description,
+          technologies,
+          tags,
+          liveDemoLink,
+          imageUrl,
+          githubLink,
+            companyName,
+          display,
         } = req.body;
         
-        const project = await Project.findByIdAndUpdate(id, {
+        const project = await Project.findByIdAndUpdate(
+          id,
+          {
             title,
             description,
             technologies,
@@ -64,7 +84,11 @@ router.put("/update-project/:id", async (req, res) => {
             liveDemoLink,
             imageUrl,
             githubLink,
-        }, { new: true });
+            companyName,
+            display,
+          },
+          { new: true }
+        );
         
         if (!project) {
             return res.status(404).json({ message: "Project not found" });
@@ -90,6 +114,25 @@ router.delete("/delete-project/:id", async (req, res) => {
         }
         
         res.json({ message: "Project deleted successfully" });
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send("Server Error");
+    }
+});
+
+//get project by id
+
+router.get("/get-project/:id", async (req, res) => {
+    try {
+        const { id } = req.params;
+        
+        const project = await Project.findById(id);
+        
+        if (!project) {
+            return res.status(404).json({ message: "Project not found" });
+        }
+        
+        res.json(project);
     } catch (err) {
         console.error(err.message);
         res.status(500).send("Server Error");

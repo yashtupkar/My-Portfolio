@@ -14,7 +14,7 @@ const HeroSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    linkden: {
+    linkedin: {
       type: String,
     },
     github: {

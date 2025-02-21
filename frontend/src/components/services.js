@@ -126,7 +126,7 @@ const Services = () => {
             <div
               key={index}
               data-aos="zoom-in"
-              className="flex flex-col shadow-lg justify-between cursor-pointer p-6 min-w-60 rounded-2xl h-52 bg-gray-200 hover:bg-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700"
+              className="flex flex-col   shadow-lg shining-box justify-between cursor-pointer p-6 min-w-60 rounded-2xl h-52 bg-gray-200 hover:bg-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700"
             >
               <div className="w-14 h-14  flex items-center justify-center shadow-lg bg-white rounded-full">
                 <div dangerouslySetInnerHTML={{ __html: service.icon }} />
@@ -144,7 +144,7 @@ const Services = () => {
         </div>
         <div
           data-aos="slide-up"
-          className="w-full md:w-2/6 relative flex items-end p-3 md:p-6 min-h-56 md:h-92  rounded-2xl  bg-custom-gradient"
+          className="w-full md:w-2/6 relative  flex items-end p-3 md:p-6 min-h-56 md:h-92  rounded-2xl  bg-custom-gradient"
         >
           <span className="text-white font-light absolute top-5 right-5 md:top-10 md:right-10 -rotate-45">
             <FaArrowRight size="60" />

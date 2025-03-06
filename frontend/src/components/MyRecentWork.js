@@ -27,10 +27,10 @@ const MyRecentWork = () => {
   }, []);
 
   return (
-    <div className="mt-20 flex flex-col justify-center items-center  md:p-10 md:border-2 border-gray-300 md:dark:border-gray-700 rounded-3xl">
+    <div className="mt-20 flex h-full flex-col justify-center items-start md:items-center  md:p-10 md:border border-gray-300 md:dark:border-gray-700 rounded-3xl">
       <div className="flex flex-col items-start md:items-center">
         <h1 className="gradient-text font-semibold text-xl">Portfolio</h1>
-        <h1 className="text-3xl md:text-5xl text-gray-500 dark:text-white font-bold">
+        <h1 className="text-3xl md:text-6xl text-gray-500 dark:text-white font-bold">
           My Recent Works
         </h1>
       </div>
@@ -83,7 +83,7 @@ const MyRecentWork = () => {
                       {tag.trim()}
                     </span>
                   ))}
-                <span className="text-gray-400 ml-auto  dark:text-gray-500 -rotate-45">
+                <span className="text-gray-400 ml-auto block md:hidden  dark:text-gray-500 -rotate-45">
                   <FaArrowRight size="30" />
                 </span>
               </div>
@@ -99,7 +99,7 @@ const MyRecentWork = () => {
         ))}
       </div>
       <div data-aos="fade-up" className="w-full h-fit mt-4 ">
-        <button className="transition-transform duration-300 hover:scale-105 bg-custom-gradient text-white p-2 text-lg w-full rounded-xl">
+        <button className="transition-transform duration-300 hover:scale-105 bg-custom-gradient text-white p-2 text-sm md:text-lg w-full md:rounded-xl rounded-md">
           View All
         </button>
       </div>

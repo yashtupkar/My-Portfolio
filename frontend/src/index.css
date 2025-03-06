@@ -4,6 +4,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html, body {
+    font-family: 'Syne', sans-serif;
+  }
+}
+
+
 @keyframes letterIn {
   0% {
     transform: translateY(-10px);
@@ -41,7 +48,7 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #a64ffc;
+    background: #7D5EE1;
     border-radius: 5px;
 }
 
@@ -110,5 +117,8 @@
   animation: shine 20s linear infinite; /* Slower animation */
   border-radius: 10px;
    /* Adjusted glow intensity */
+}
+html {
+  scroll-behavior: smooth;
 }
 

@@ -60,13 +60,16 @@ const handleVerify = () => {
               id={`secret-input-${index}`}
               type="text"
               maxLength="1"
+              autoComplete="off"
+              inputMode="numeric"
+              aria-hidden="true"
               className="w-12 h-12 text-center text-lg border dark:bg-gray-800 bg-gray-300 border-gray-400 dark:border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={digit}
               onChange={(e) => handleChange(index, e.target.value)}
             />
           ))}
         </div>
-      
+
         <button
           onClick={handleVerify}
           className="w-full bg-custom-gradient text-white py-2 rounded hover:scale-110 transition-transform duration-300 ease-in-out"

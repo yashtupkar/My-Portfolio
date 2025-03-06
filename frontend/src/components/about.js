@@ -21,7 +21,7 @@ const About = () => {
     }, []); 
    
   return (
-    <div className="relative flex flex-col md:flex-row h-fit md:h-[90vh] md:border-2 border-gray-300 md:dark:border-gray-700 rounded-3xl items-center gap-2 mt-10">
+    <div  className="relative flex flex-col mt-20 p-4 md:p-0 md:mt-0 md:flex-row h-fit md:h-screen md:border border-gray-300 md:dark:border-gray-700 rounded-3xl items-center gap-2 ">
       <div className="absolute top-10 right-10 w-20 h-20 hidden md:block">
         <img
           src="/images/star.png"
@@ -72,21 +72,21 @@ const About = () => {
         <h1 className="text-2xl md:text-4xl font-semibold mt-2 md:mt-4">
           Based in India
         </h1>
-        <p className="text-sm md:text-base mt-2 md:mt-4 text-gray-600 dark:text-gray-500">
+        <p className="text-sm md:text-base mt-2 md:mt-4 text-gray-600 dark:text-gray-400">
           {aboutMe?.bio}
         </p>
         <div className="flex gap-6 items-center mt-4">
           {aboutMe?.stats?.map((stat, index) => (
             <div
               key={index}
-              className="flex flex-col items-center justify-center"
+              className="flex flex-col items-start md:items-center justify-center"
             >
-              <h1 className="text-4xl font-bold">{stat.value}</h1>
-              <p className="text-gray-400">{stat.label}</p>
+              <h1 className="text-2xl md:text-4xl font-bold">{stat.value}</h1>
+              <p className="text-gray-400 text-sm md:text-base">{stat.label}</p>
             </div>
           ))}
         </div>
-        <button className="mt-4 md:mt-6 bg-custom-gradient text-white font-semibold md:text-xl px-6 py-4 text-sm rounded-xl">
+        <button className="mt-4 md:mt-6 bg-custom-gradient text-white font-semibold md:text-xl px-6 py-4 text-sm rounded-md md:rounded-xl">
           Download My Resume
         </button>
       </div>

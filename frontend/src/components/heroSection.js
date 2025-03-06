@@ -14,12 +14,14 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import AuthStar from './AuthStar';
 import axios from 'axios'
-
+import { useNavigate } from 'react-router-dom';
 
 
 
 
 const HeroSection = () => {
+
+  const navigate = useNavigate();
   useEffect(() => {
     AOS.init({
       duration: 1000, 
@@ -141,8 +143,8 @@ const HeroSection = () => {
     },
     {
       title: "Github",
-      icon: <BsGithub />,
-      color: "#FFFFFF",
+      icon: <BsGithub className="dark:text-white text-black" />,
+      
     },
   ];
 
@@ -164,7 +166,7 @@ const HeroSection = () => {
         {/*section1*/}
         <div
           data-aos="fade-right"
-          className=" relative h-fit md:h-[60vh] flex flex-col gap-2 bg-gray-50 shadow-xl dark:bg-gray-900 rounded-3xl dark:shadow-lg px-3 py-2 md:px-6 md:py-4 border border-gray-500 "
+          className=" relative h-fit md:h-[60vh] flex flex-col gap-2 bg-white shadow-xl dark:bg-gray-900 rounded-xl md:rounded-3xl dark:shadow-lg px-3 py-2 md:px-6 md:py-4 border border-gray-300 dark:border-gray-500 "
         >
           <div className="absolute top-4 right-6 md:right-10">
             <AuthStar />
@@ -176,7 +178,7 @@ const HeroSection = () => {
               className="w-8 h-8 floating-animation md:w-10 md:h-10"
             />
           </div>
-          <div className="flex gap-4 p-3 bg-custom-gradient cursor-pointer text-white rounded-xl w-fit items-center mb-2 mt-2 shadow-md">
+          <div className="flex gap-4 p-3 bg-custom-gradient cursor-pointer text-white rounded-lg md:rounded-xl w-fit items-center mb-2 mt-2 shadow-md">
             <div className="relative md:w-12 md:h-12">
               <Avatar
                 src="/images/hero.png"
@@ -216,10 +218,15 @@ const HeroSection = () => {
             {heroData?.bio}
           </p>
           <div className="flex w-full gap-4 mt-4 mb-4 md:mb-0 ">
-            <button className="bg-custom-gradient text-sm md:text-base font-semibold py-3 transition-all duration-300 ease-in-out transform hover:scale-105 px-6 rounded-xl text-white shadow-md">
+            <button className="bg-custom-gradient text-sm md:text-base font-semibold py-3 transition-all duration-300 ease-in-out transform hover:scale-105 px-6 rounded-lg text-white shadow-md">
               Download CV
             </button>
-            <button className="text-sm md:text-base bg-white dark:bg-gray-700 font-semibold  flex gap-2 items-center shadow-md py-3 px-6 rounded-xl text-gray-600 dark:text-white transition-all duration-300 ease-in-out transform hover:scale-105  focus:outline-none focus:ring-2 focus:ring-custom-gradient active:bg-custom-gradient-dark">
+            <button
+              onClick={() => {
+                navigate("/my-work");
+              }}
+              className="text-sm md:text-base bg-white dark:bg-gray-700 font-semibold  flex gap-2 items-center shadow-md py-3 px-6 rounded-lg text-gray-600 dark:text-white transition-all duration-300 ease-in-out transform hover:scale-105  focus:outline-none focus:ring-2 focus:ring-custom-gradient active:bg-custom-gradient-dark"
+            >
               {" "}
               My Work <IoPaperPlane />
             </button>
@@ -228,11 +235,11 @@ const HeroSection = () => {
         {/*section2*/}
         <div
           data-aos="fade-right"
-          className=" flex-1 flex flex-col h-fit md:h-[40vh] bg-gray-50 shadow-xl dark:bg-gray-900 text-white rounded-3xl dark:shadow-lg md:px-6 px-4 md:py-4 py-2 border border-gray-500"
+          className=" flex-1 flex flex-col h-fit md:h-[40vh] items-center md:items-start bg-white shadow-xl dark:bg-gray-900 text-white rounded-xl md:rounded-3xl dark:shadow-lg md:px-6 px-4 md:py-4 py-2 border border-gray-300 dark:border-gray-500"
         >
           <div className="flex gap-2">
             {" "}
-            <h1 className=" font-semibold text-xl text-gray-700 dark:text-gray-400 flex items-center gap-2 mb-2">
+            <h1 className=" font-semibold text-xl text-gray-600 dark:text-gray-400 flex items-center gap-2 md:mb-2">
               <span>
                 <FaLink />
               </span>
@@ -246,10 +253,10 @@ const HeroSection = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 key={link.title}
-                className="flex gap-2 text-sm p-3 w-fit sm:w-40 bg-custom-gradient   rounded-2xl dark:text-white hover:bg-custom-gradient hover:text-white transition-all ease-in-out"
+                className="flex gap-2 text-md px-3 py-2 w-fit sm:w-40 bg-custom-gradient items-center   rounded-xl dark:text-white hover:bg-custom-gradient hover:text-white transition-all ease-in-out"
               >
                 {link.icon}
-                <span className="hidden sm:block font-semibold">
+                <span className="hidden sm:block font-semibold text-lg">
                   {link.title}
                 </span>
               </a>
@@ -285,7 +292,7 @@ const HeroSection = () => {
       {/* Right Div */}
       <div
         data-aos="fade-left"
-        className="flex-1 flex flex-col items-center bg-gray-50 shadow-xl dark:bg-gray-900 rounded-3xl dark:shadow-lg px-4 py-4 border border-gray-500 "
+        className="flex-1 flex flex-col items-center bg-white shadow-xl dark:bg-gray-900 rounded-xl md:rounded-3xl dark:shadow-lg px-4 py-4 border border-gray-300 dark:border-gray-500 "
       >
         <h1 className="text-xl font-semibold dark:text-gray-400 text-gray-700 mb-2">
           Techonologies
@@ -294,7 +301,7 @@ const HeroSection = () => {
           {Technologies.map((tech) => (
             <div
               key={tech.title}
-              className="group relative flex gap-2 p-3 shaking-animation  text-4xl md:text-5xl border border-gray-500 bg-gray-600 dark:bg-gray-800 shadow-xl rounded-lg mb-2 scale-100 transition-transform duration-500 hover:scale-110"
+              className="group relative flex gap-2 p-3 shaking-animation  text-4xl md:text-5xl border border-gray-300 dark:border-gray-500 bg-white dark:bg-gray-800 shadow-xl rounded-lg mb-2 scale-100 transition-transform duration-500 hover:scale-110"
               style={{ color: tech.color }}
             >
               {tech.icon}

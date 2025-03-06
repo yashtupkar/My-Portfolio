@@ -8,9 +8,9 @@ import Services from "../components/services";
 import About from "../components/about";
 import Resume from "../components/resumeSection";
 import MyRecentWork from "../components/MyRecentWork";
-import HorizontalScroll from "../components/HorizontalScroll";
 import TestimonialSection from "../components/testimonialSection";
-
+import ContactForm from "../components/contactForm";
+import { Element } from "react-scroll";
 function HomePage() {
   return (
     <>
@@ -21,12 +21,22 @@ function HomePage() {
       <div className="px-4 sm:px-10 md:px-10 lg:px-40 bg-white h-fit  gap-10 dark:bg-gray-900 font-syne overflow-x-hidden">
         <SplashScreen />
         <Navbar />
-        <HeroSection />
+        <Element name="home">
+          <HeroSection />
+        </Element>
+
         <Services />
-        <About />
+        <Element name="about">
+          <About />
+        </Element>
         <Resume />
-        <MyRecentWork />
-     <TestimonialSection/>
+        <Element name="project">
+          <MyRecentWork />
+        </Element>
+        <TestimonialSection />
+        <Element name="contact">
+          <ContactForm />
+        </Element>
         <Footer />
       </div>
     </>

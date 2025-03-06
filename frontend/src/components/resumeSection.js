@@ -70,7 +70,7 @@ function formatDateToMonthYear(inputDate) {
         <h1 className="text-lg md:text-3xl font-bold dark:text-white mb-4">
           About me
         </h1>
-        <div className="h-fit md:h-[70vh] bg-gray-200 dark:bg-gray-900 rounded-xl  p-2 md:p-4">
+        <div className="h-[50vh] md:h-[70vh] bg-gray-200 dark:bg-gray-900 rounded-xl overflow-y-scroll  p-2 md:p-4">
           <h3 className="text-gray-600 dark:text-gray-400 text-lg font-medium">
             Based in India
           </h3>
@@ -146,7 +146,7 @@ function formatDateToMonthYear(inputDate) {
         <h1 className="text-lg md:text-3xl font-bold dark:text-white mb-4">
           Experience
         </h1>
-        <div className="flex flex-col h-fit md:h-[70vh]  gap-2 bg-gray-200 dark:bg-gray-900 rounded-xl overflow-y-scroll p-2">
+        <div className="flex flex-col h-[50vh] md:h-[70vh]  gap-2 bg-gray-200 dark:bg-gray-900 rounded-xl overflow-y-scroll p-2">
           {aboutMe?.experience?.length > 0 ? (
             aboutMe.experience.map((experience, index) => (
               <div
@@ -184,7 +184,7 @@ function formatDateToMonthYear(inputDate) {
         <h1 className="text-lg md:text-3xl font-bold dark:text-white mb-4">
           Education
         </h1>
-        <div className="flex flex-col gap-2 md:gap-4 h-fit md:h-[70vh] bg-gray-200 dark:bg-gray-900 rounded-xl overflow-y-scroll p-2 md:p-4">
+        <div className="flex flex-col gap-2 md:gap-4 h-[50vh] md:h-[70vh] bg-gray-200 dark:bg-gray-900 rounded-xl overflow-y-scroll p-2 md:p-4">
           {aboutMe?.education?.length > 0 ? (
             aboutMe.education.map((education, index) => {
               return (
@@ -224,14 +224,17 @@ function formatDateToMonthYear(inputDate) {
         <h1 className="text-lg md:text-3xl font-bold dark:text-white mb-4">
           Skills
         </h1>
-        <div className="h-[70vh] grid grid-cols-2 gap-2 bg-gray-200 dark:bg-gray-900 rounded-xl overflow-y-scroll p-2">
+        <div className="h-[50vh] md:h-[70vh] grid grid-cols-2 gap-2 bg-gray-200 dark:bg-gray-900 rounded-xl overflow-y-scroll p-2">
           {aboutMe?.skills?.length > 0 ? (
             aboutMe.skills.map((skill, index) => (
               <div
                 key={index}
-                className="p-4 bg-gray-50 dark:bg-gray-800 text-gray-500 dark:text-gray-400 flex items-center justify-center  hover:bg-custom-gradient hover:text-white transition-transform duration-300 hover:scale-95  rounded-xl"
+                className="p-4 bg-gray-50 dark:bg-gray-800  cursor-pointer dark:text-gray-400 flex items-center justify-center  hover:bg-custom-gradient hover:text-white dark:hover:text-white
+ transition-transform duration-300 hover:scale-95  rounded-xl"
               >
-                <h1 className="font-bold md:font-extrabold    text-lg md:text-2xl ">{skill}</h1>
+                <h1 className="font-bold md:font-extrabold    text-lg md:text-2xl ">
+                  {skill}
+                </h1>
               </div>
             ))
           ) : (
@@ -246,35 +249,37 @@ function formatDateToMonthYear(inputDate) {
         <h1 className="text-lg md:text-3xl font-bold dark:text-white mb-4">
           Awards
         </h1>
-        <div className="flex flex-col gap-2 md:gap-4 h-fit md:h-[70vh] bg-gray-200 dark:bg-gray-900 rounded-xl overflow-y-scroll p-2 md:p-4">
+        <div className="flex flex-col gap-2 md:gap-4 h-[50vh] md:h-[70vh] bg-gray-200 dark:bg-gray-900 rounded-xl overflow-y-scroll p-2 md:p-4">
           {aboutMe?.awards?.length > 0 ? (
             [...aboutMe.awards].reverse().map((award, index) => (
-              <div
-                key={index}
-                className="p-2 md:p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-transform duration-300 hover:scale-95 text-white rounded-xl"
-              >
-                <span className="text-gray-600 dark:text-gray-400 text-sm md:text-lg block">
-                  Year: {award?.year}
-                </span>
-                <div className="flex gap-2 items-center mt-2 mb-2 md:mb-4">
-                  <div className="bg-custom-gradient rounded-full w-2 h-2"></div>
-                  <p className="font-bold test-lg md:text-xl text-black dark:text-white">
-                    {award?.title}
-                  </p>
+              <a href={`${award?.linkedin || "http://linkedin.com"}`}>
+                <div
+                  key={index}
+                  className="p-2 md:p-4 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-transform duration-300 hover:scale-95 text-white rounded-xl"
+                >
+                  <span className="text-gray-600 dark:text-gray-400 text-sm md:text-lg block">
+                    Year: {award?.year}
+                  </span>
+                  <div className="flex gap-2 items-center mt-2 mb-2 md:mb-4">
+                    <div className="bg-custom-gradient rounded-full w-2 h-2"></div>
+                    <p className="font-bold test-lg md:text-xl text-black dark:text-white">
+                      {award?.title}
+                    </p>
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <p className="test-sm md:text-lg text-gray-600 font-semibold dark:text-gray-400">
+                      {" "}
+                      Organization:{" "}
+                      <span className="text-gray-900 dark:text-gray-300">
+                        {award?.organization}
+                      </span>
+                    </p>
+                    <p className="text-sm md:text-lg text-gray-900 dark:text-gray-300">
+                      {award?.description}
+                    </p>
+                  </div>
                 </div>
-                <div className="flex flex-col gap-2">
-                  <p className="test-sm md:text-lg text-gray-600 font-bold dark:text-gray-400">
-                    {" "}
-                    Organization:{" "}
-                    <span className="text-gray-900 dark:text-gray-300">
-                      {award?.organization}
-                    </span>
-                  </p>
-                  <p className="text-sm md:text-lg text-gray-900 dark:text-gray-300">
-                    {award?.description}
-                  </p>
-                </div>
-              </div>
+              </a>
             ))
           ) : (
             <p className="text-gray-500">No award data available.</p>
@@ -285,14 +290,14 @@ function formatDateToMonthYear(inputDate) {
   };
 
   return (
-    <div className=" h-full flex flex-col md:flex-row gap-4  md:p-8 mt-20">
+    <div className=" h-fit md:h-screen flex flex-col md:flex-row gap-4  md:py-16 mt-20 md:mt-0">
       <div
         data-aos="zoom-out-down"
         className="flex flex-col w-full md:w-1/2 justify-between items-start md:items-center "
       >
         <div>
           <h1 className="gradient-text font-bold text-xl">Resume</h1>
-          <h2 className="text-3xl md:text-5xl text-gray-500 dark:text-white font-bold">
+          <h2 className="text-3xl md:text-6xl text-gray-500 dark:text-white font-bold">
             All over my <br /> details find here...
           </h2>
         </div>
@@ -323,7 +328,7 @@ function formatDateToMonthYear(inputDate) {
         {/* Right Section - Content */}
         <div
           data-aos="zoom-out-left"
-          className="md:col-span-2 bg-gray-100 h-fit md:h-[85vh] dark:bg-gray-800 rounded-xl px-3 py-2 md:p-6"
+          className="md:col-span-2 bg-gray-100 h-[60vh] md:h-[85vh] dark:bg-gray-800 rounded-xl px-3 py-2 md:p-6"
         >
           {sections[activeSection]}
         </div>

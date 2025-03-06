@@ -22,7 +22,7 @@ const Footer = () => {
             </h1>
           </div>
         </div>
-        <div className="w-full mt-4 md:mt-0 md:w-96 px-3 py-6 md:px-6 md:py-10 md:h-52 h-40 rounded-3xl flex flex-col justify-between border border-1 border-gray-400 ">
+        <div className="w-full mt-4 md:mt-0 md:w-96 px-3 py-6 md:px-6 md:py-10 md:h-52 h-40 rounded-xl md:rounded-3xl flex flex-col justify-between border border-gray-400 dark:border-gray-600 ">
           <h1 className="text-xl font-semibold text-gray-600 dark:text-white">
             Looking for a Web Developer?
           </h1>
@@ -33,7 +33,7 @@ const Footer = () => {
             </span>
           </h1>
         </div>
-        <div className="px-3 py-6 md:px-6 md:py-10 w-full mt-4 md:mt-0 md:w-96 rounded-3xl md:h-52 h-40 flex flex-col justify-between border border-1 border-gray-400 ">
+        <div className="px-3 py-6 md:px-6 md:py-10 w-full mt-4 md:mt-0 md:w-96 rounded-xl md:rounded-3xl md:h-52 h-40 flex flex-col justify-between border dark:border-gray-600 border-gray-400 ">
           <h1 className="text-xl font-semibold text-gray-600 dark:text-white">
             Want a more in-depth look <br />
             at my history?
@@ -55,7 +55,8 @@ const Footer = () => {
         <h1 className="text-gray-600 dark:text-white text-sm md:text-xl">
           ©2025 Yash Tupkar, All Rights Reserved
         </h1>
-        <a href='#'
+        <a
+          href="#"
           className="text-sm md:text-xl flex gap-2
          text-gray-600 dark:text-white"
         >

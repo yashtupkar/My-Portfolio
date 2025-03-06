@@ -103,7 +103,7 @@ const Services = () => {
       },
     ];
   return (
-    <div className="mt-20 h-fit flex flex-col">
+    <div className=" mt-20 md:mt-0 h-fit md:h-screen flex justify-center flex-col">
       <div className="flex flex-col md:flex-row justify-between w-full">
         <div className="w-full md:w-1/2">
           <h1 className="gradient-text font-semibold text-xl">Services</h1>
@@ -120,8 +120,8 @@ const Services = () => {
           </p>
         </div>
       </div>
-      <div className="flex flex-col h-fit p-2 md:p-0 md:flex-row gap-3 mt-10">
-        <div className="grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="flex flex-col h-fit p-0 md:flex-row gap-3 mt-10">
+        <div className="grid gap-3 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 w-full">
           {Service.map((service, index) => (
             <div
               key={index}
@@ -132,11 +132,11 @@ const Services = () => {
                 <div dangerouslySetInnerHTML={{ __html: service.icon }} />
               </div>
               <div className="flex items-center justify-between text-black  dark:text-white">
-                <h1 className="text-2xl w-40 font-semibold ">
+                <h1 className="text-xl md:text-2xl w-40 font-semibold mt-10 md:mt-4">
                   {service.title}
                 </h1>
-                <span className="text-gray-600 dark:text-gray-500 -rotate-45">
-                  <FaArrowRight size="20" />
+                <span className="text-gray-400 text-3xl md:text-xl dark:text-gray-500 -rotate-45">
+                  <FaArrowRight  />
                 </span>
               </div>
             </div>

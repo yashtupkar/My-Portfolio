@@ -25,7 +25,7 @@ const AnimatedText = () => {
   }, [words.length]);
 
   return (
-    <div className="  font-semibold  p-2 bg-gray-200 dark:bg-gray-800 rounded-xl">
+    <div className="  font-semibold  p-2 bg-gray-100 dark:bg-gray-800 rounded-lg">
       <h2 className="relative inline-block text-xl md:text-4xl font-bold">
         I'm <span className="gradient-text typing-effect">{words[currentWord]}</span>
       </h2>

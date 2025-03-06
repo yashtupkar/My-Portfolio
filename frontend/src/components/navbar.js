@@ -55,19 +55,22 @@ const Navbar = () => {
   };
 
   const NavLinks = [
-    { title: "Home", url: "home" },
-    { title: "About", url: "about" },
-    { title: "Contact", url: "contact" },
-    { title: "Projects", url: "project" },
+    { title: "Home", url: "/" },
+    { title: "About", url: "/about" },
+    { title: "Contact", url: "/contact" },
+    { title: "Work", url: "/my-work" },
   ];
 
   return (
     <nav className="bg-transparent">
       <div className="container mx-auto px-0 md:px-4 py-4 flex justify-between items-center">
         {/* Logo */}
-        <div onClick={() => {
-          navigate("/");
-        }} className="text-2xl cursor-pointer font-bold text-gray-600 dark:text-gray-400">
+        <div
+          onClick={() => {
+            navigate("/");
+          }}
+          className="text-2xl cursor-pointer font-bold text-gray-600 dark:text-gray-400"
+        >
           Yash Tupkar
         </div>
 
@@ -76,10 +79,12 @@ const Navbar = () => {
           {NavLinks.map((link, index) => (
             <Link
               key={index}
-              to={link.url} // Uses the section ID
+              onClick={() => {
+                navigate(`${link.url}`);
+              }} // Uses the section ID
               smooth={true}
               duration={500}
-              className="text-gray-600 cursor-pointer dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200"
+              className="text-gray-600 relative  hover:tracking-widest transition-all duration-300 ease-in-out cursor-pointer dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200"
             >
               {link.title}
             </Link>

@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const MyRecentWork = () => {
   const [projects, setProjects] = useState([]);
+
+  const navigate = useNavigate();
 
   const fetchProjects = async () => {
     try {
@@ -99,7 +102,9 @@ const MyRecentWork = () => {
         ))}
       </div>
       <div data-aos="fade-up" className="w-full h-fit mt-4 ">
-        <button className="transition-transform duration-300 hover:scale-105 bg-custom-gradient text-white p-2 text-sm md:text-lg w-full md:rounded-xl rounded-md">
+        <button onClick={() => {
+          navigate('/my-work');
+        }} className="transition-transform duration-300 hover:scale-105 bg-custom-gradient text-white p-2 text-sm md:text-lg w-full md:rounded-xl rounded-md">
           View All
         </button>
       </div>

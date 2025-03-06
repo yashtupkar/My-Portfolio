@@ -51,7 +51,6 @@ const ProjectSection = () => {
     setFormData({ ...formData, technologies: updatedTech });
   };
 
-  // Add new technology input field
   const addTechnologyField = () => {
     setFormData({
       ...formData,
@@ -59,19 +58,19 @@ const ProjectSection = () => {
     });
   };
 
-  // Remove a specific technology input field
+
   const removeTechnologyField = (index) => {
     const updatedTech = [...formData.technologies];
     updatedTech.splice(index, 1);
     setFormData({ ...formData, technologies: updatedTech });
   };
 
-  // Handle file change
+
  const handleFileUpload = (file) => {
    setFormData((prev) => ({ ...prev, imageUrl: file }));
  };
 
-  // Handle form submission
+ 
  const handleSubmit = async (e) => {
     e.preventDefault();
     
@@ -202,6 +201,27 @@ const handleDelete = async (id) => {
      setEditedFormData(projectData); // Update form data after fetching project
    }
  }, [projectData]); 
+const handleTechChange = (e, index) => {
+  setEditedFormData((prev) => {
+    const updatedTech = [...prev.technologies];
+    updatedTech[index] = e.target.value;
+    return { ...prev, technologies: updatedTech };
+  });
+};
+
+const addTechnologyField = () => {
+  setEditedFormData((prev) => ({
+    ...prev,
+    technologies: [...prev.technologies, ""],
+  }));
+};
+
+const removeTechnologyField = (index) => {
+  setEditedFormData((prev) => ({
+    ...prev,
+    technologies: prev.technologies.filter((_, i) => i !== index),
+  }));
+};
 
 
    const handleFormInputChange = (e) => {
@@ -237,7 +257,7 @@ const handleFileUpload = (fileUrl) => {
              </button>
            </div>
 
-           {/* Updated form */}
+          
            <form onSubmit={handleSubmitEdit} className="flex gap-3">
              <div className="w-full h-full flex flex-col gap-2 p-2">
                <DragDropFileUpload

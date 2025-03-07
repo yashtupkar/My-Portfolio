@@ -34,7 +34,7 @@ const MyWork = () => {
         <Navbar />
 
         <div className=" flex h-full flex-col justify-center items-start md:items-center  md:p-10  rounded-3xl">
-          <div className="flex flex-col items-start md:items-center">
+          <div className="flex flex-col w-full items-center">
             <h1 className="gradient-text font-semibold text-xl">Portfolio</h1>
             <h1 className="text-3xl md:text-6xl text-gray-500 dark:text-white font-bold">
               My Recent Works
@@ -70,11 +70,11 @@ const MyWork = () => {
 
                   {/* Project Details */}
                   <div className="w-full md:w-1/2 p-2 md:p-4">
-                    <h1 className="text-xl md:text-3xl gradient-text font-extrabold">
+                    <h1 className="text-xl md:text-3xl gradient-text line-clamp-3 overflow-hidden font-extrabold">
                       {project.title}
                     </h1>
                     <div className="w-full hidden md:block h-28">
-                      <p className="text-lg  text-gray-600 dark:text-gray-300 line-clamp-4 overflow-hidden">
+                      <p className="text-lg  text-gray-600 dark:text-gray-300 line-clamp-3 overflow-hidden">
                         {project.description}
                       </p>
                     </div>

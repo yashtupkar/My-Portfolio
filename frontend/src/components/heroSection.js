@@ -21,6 +21,16 @@ import { useNavigate } from 'react-router-dom';
 
 const HeroSection = () => {
 
+  const downloadPDF = () => {
+    const pdfUrl = "http://localhost:1000/uploads/sample.pdf"; // Backend URL
+    const link = document.createElement("a");
+    link.href = pdfUrl;
+    link.download = "sample.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   const navigate = useNavigate();
   useEffect(() => {
     AOS.init({
@@ -178,7 +188,7 @@ const HeroSection = () => {
               className="w-8 h-8 floating-animation md:w-10 md:h-10"
             />
           </div>
-          <div className="flex gap-4 p-3 bg-custom-gradient cursor-pointer text-white rounded-lg md:rounded-xl w-fit items-center mb-2 mt-2 shadow-md">
+          <div className="flex gap-4 p-3 bg-custom-gradient border-4 border-gray-200 dark:border-gray-600 cursor-pointer text-white rounded-lg md:rounded-xl w-fit items-center mb-2 mt-2 shadow-md">
             <div className="relative md:w-12 md:h-12">
               <Avatar
                 src="/images/hero.png"
@@ -218,12 +228,15 @@ const HeroSection = () => {
             {heroData?.bio}
           </p>
           <div className="flex w-full gap-4 mt-4 mb-4 md:mb-0 ">
-            <button className="bg-custom-gradient text-sm md:text-base font-semibold py-3 transition-all duration-300 ease-in-out transform hover:scale-105 px-6 rounded-lg text-white shadow-md">
+            <button
+              onClick={downloadPDF}
+              className="bg-custom-gradient text-sm md:text-base font-semibold py-3 transition-all duration-300 ease-in-out transform hover:scale-105 px-6 rounded-lg text-white shadow-md"
+            >
               Download CV
             </button>
             <button
               onClick={() => {
-                navigate("/my-work");
+                navigate("/projects");
               }}
               className="text-sm md:text-base bg-white dark:bg-gray-700 font-semibold  flex gap-2 items-center shadow-md py-3 px-6 rounded-lg text-gray-600 dark:text-white transition-all duration-300 ease-in-out transform hover:scale-105  focus:outline-none focus:ring-2 focus:ring-custom-gradient active:bg-custom-gradient-dark"
             >

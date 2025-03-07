@@ -64,11 +64,11 @@ const MyRecentWork = () => {
 
             {/* Project Details */}
             <div className="w-full md:w-1/2 p-2 md:p-4">
-              <h1 className="text-xl md:text-3xl gradient-text font-extrabold">
+              <h1 className="text-xl md:text-3xl gradient-text line-clamp-3 overflow-hidden font-extrabold">
                 {project.title}
               </h1>
               <div className="w-full hidden md:block h-28">
-                <p className="text-lg  text-gray-600 dark:text-gray-300 line-clamp-4 overflow-hidden">
+                <p className="text-lg  text-gray-600 dark:text-gray-300 line-clamp-3 overflow-hidden">
                   {project.description}
                 </p>
               </div>
@@ -102,9 +102,12 @@ const MyRecentWork = () => {
         ))}
       </div>
       <div data-aos="fade-up" className="w-full h-fit mt-4 ">
-        <button onClick={() => {
-          navigate('/my-work');
-        }} className="transition-transform duration-300 hover:scale-105 bg-custom-gradient text-white p-2 text-sm md:text-lg w-full md:rounded-xl rounded-md">
+        <button
+          onClick={() => {
+            navigate("/projects");
+          }}
+          className="transition-transform duration-300 hover:scale-105 bg-custom-gradient text-white p-2 text-sm md:text-lg w-full md:rounded-xl rounded-md"
+        >
           View All
         </button>
       </div>

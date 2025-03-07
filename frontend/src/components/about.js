@@ -21,7 +21,7 @@ const About = () => {
     }, []); 
    
   return (
-    <div  className="relative flex flex-col mt-20 p-4 md:p-0 md:mt-0 md:flex-row h-fit md:h-screen md:border border-gray-300 md:dark:border-gray-700 rounded-3xl items-center gap-2 ">
+    <div className="relative flex flex-col mt-20 p-4 md:p-0 md:mt-0 md:flex-row h-fit md:h-screen md:border border-gray-300 md:dark:border-gray-700 rounded-3xl items-center gap-2 ">
       <div className="absolute top-10 right-10 w-20 h-20 hidden md:block">
         <img
           src="/images/star.png"
@@ -32,9 +32,9 @@ const About = () => {
       <div data-aos="zoom-out-right" className="w-full md:w-1/2">
         <div className="w-full h-full rounded-full flex justify-center items-center relative group cursor-pointer">
           <img
-            src={ `http://localhost:1000/uploads/${aboutMe?.profileImage}`}
+            src={`http://localhost:1000/uploads/${aboutMe?.profileImage}`}
             alt="Yash Tupkar"
-            className="rounded-full transition-all  duration-300 ease-in-out transform group-hover:scale-110 group-hover:rotate-12"
+            className="rounded-full transition-all border-8 border-gray-200 dark:border-gray-700 duration-300 ease-in-out transform group-hover:scale-110 group-hover:rotate-12"
           />
 
           {/* Ripple Effect */}

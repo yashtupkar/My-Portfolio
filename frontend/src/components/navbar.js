@@ -58,20 +58,25 @@ const Navbar = () => {
     { title: "Home", url: "/" },
     { title: "About", url: "/about" },
     { title: "Contact", url: "/contact" },
-    { title: "Work", url: "/my-work" },
+    { title: "Projects", url: "/projects" },
   ];
 
   return (
     <nav className="bg-transparent">
       <div className="container mx-auto px-0 md:px-4 py-4 flex justify-between items-center">
-        {/* Logo */}
         <div
           onClick={() => {
             navigate("/");
           }}
-          className="text-2xl cursor-pointer font-bold text-gray-600 dark:text-gray-400"
+          className="text-2xl flex gap-2 items-center cursor-pointer font-bold text-gray-600 dark:text-gray-400"
         >
-          Yash Tupkar
+          <img
+            src="/images/yylogo.png"
+            className="rounded-lg w-12 h-12 bg-custom-gradient border-4 border-gray-200 dark:border-gray-600"
+          />
+          <h1 className="text-2xl cursor-pointer font-bold text-gray-600 dark:text-gray-400">
+            Yash Tupkar
+          </h1>
         </div>
 
         {/* Nav Links for Larger Screens */}
@@ -133,10 +138,13 @@ const Navbar = () => {
       >
         {/* Header */}
         <div className="flex justify-between items-center p-6 border-b border-gray-700">
-          <span className="text-2xl font-bold tracking-wide">YASH</span>
+          <img
+            src="/images/yylogo.png"
+            className="rounded-lg w-12 h-12 bg-custom-gradient border-4 border-gray-200 dark:border-gray-600"
+          />
           <button
             onClick={() => setMenuOpen(false)}
-            className="bg-custom-gradient p-2 rounded-xl text-white  transition-all"
+            className="bg-gray-700 p-2 rounded-full text-white  transition-all"
             aria-label="Close Menu"
           >
             <FaTimes size={20} />
@@ -148,11 +156,13 @@ const Navbar = () => {
           {NavLinks.map((link, index) => (
             <Link
               key={index}
-              to={link.url} // Uses the section ID
+              onClick={() => {
+                navigate(`${link.url}`);
+                setMenuOpen(false);
+              }} //// Uses the section ID
               smooth={true}
               duration={500}
-              onClick={() => setMenuOpen(false)}
-              className="flex justify-between items-center border-b cursor-pointer border-gray-700 pb-2 transition-all duration-300 hover:border-gray-500"
+              className="flex justify-between items-center border-b cursor-pointer text-3xl border-gray-600 pb-2 transition-all duration-300 hover:border-gray-500"
             >
               {link.title}
             </Link>

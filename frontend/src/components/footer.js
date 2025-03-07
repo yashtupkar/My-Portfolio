@@ -6,7 +6,10 @@ import { FaArrowRight } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <div className="w-full flex-col h-fit md:h-[70vh] mt-20 mb-6 md:mb-20 md:p-4 flex  items-center rounded-3xl   justify-center">
+    <div
+      data-aos="zoom-in-up"
+      className="w-full flex-col h-fit md:h-[70vh] mt-20  md:p-4 flex  items-center rounded-3xl   justify-center"
+    >
       <div className="flex flex-col md:flex-row w-full justify-between items-center md:items-end">
         <div className="w-full md:w-auto">
           <div>

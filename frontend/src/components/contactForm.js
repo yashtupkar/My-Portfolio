@@ -38,10 +38,13 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="w-full h-fit md:h-screen flex  items-center mt-20 md:mt-0 ">
-      <div className="md:border border-gray-700 rounded-3xl p-2 md:px-6 md:py-10 flex flex-col md:flex-row w-full">
-        <div className="w-full md:w-1/3 flex flex-col gap-6 ">
-          <div>
+    <div className="w-full h-fit md:h-screen flex  items-center mt-10 md:mt-0 ">
+      <div className=" rounded-3xl p-2 md:px-6 md:py-10 flex flex-col md:flex-row w-full">
+        <div
+          data-aos="fade-down-right"
+          className="w-full md:w-1/3 flex flex-col gap-6 "
+        >
+          <div >
             <h1 className="gradient-text font-bold text-xl">Contact</h1>
             <h2 className="text-3xl md:text-6xl text-gray-500 dark:text-white font-bold">
               Let's <br /> connect
@@ -83,7 +86,10 @@ const ContactForm = () => {
           </div>
         </div>
 
-        <div className="w-full ml-0 md:ml-20 h-fit mt-6 md:mt-0">
+        <div
+          data-aos="fade-down-left"
+          className="w-full ml-0 md:ml-20 h-fit mt-6 md:mt-0"
+        >
           <form onSubmit={onSubmit}>
             <div className="flex gap-2 md:gap-4 items-center md:p-2 mb-2 md:mb-0">
               <div className="flex flex-col gap-2 w-full">
@@ -100,7 +106,7 @@ const ContactForm = () => {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Name"
-                  className="w-full border-2 text-white text-sm md:text-base border-gray-700 bg-transparent px-3 py-2 md:px-6 md:py-4 rounded md:rounded-xl"
+                  className="w-full border-2 text-white text-sm md:text-base border-gray-600 bg-transparent px-3 py-2 md:px-6 md:py-4 rounded md:rounded-xl"
                 />
                 <ValidationError
                   prefix="Name"
@@ -122,7 +128,7 @@ const ContactForm = () => {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Email"
-                  className="w-full border md:border-2 text-sm md:text-base text-white border-gray-700 bg-transparent px-3 py-2 md:px-6 md:py-4 rounded md:rounded-xl"
+                  className="w-full border-2 text-sm md:text-base text-white border-gray-600 bg-transparent px-3 py-2 md:px-6 md:py-4 rounded md:rounded-xl"
                 />
                 <ValidationError
                   prefix="Email"
@@ -147,7 +153,7 @@ const ContactForm = () => {
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder="Phone no."
-                  className="w-full border md:border-2 text-white text-sm md:text-base border-gray-700 bg-transparent px-3 py-2 md:px-6 md:py-4 rounded md:rounded-xl"
+                  className="w-full border-2 text-white text-sm md:text-base border-gray-600 bg-transparent px-3 py-2 md:px-6 md:py-4 rounded md:rounded-xl"
                 />
                 <ValidationError
                   prefix="Phone"
@@ -169,7 +175,7 @@ const ContactForm = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   placeholder="Subject"
-                  className="w-full border md:border-2 text-white text-sm md:text-base border-gray-700 bg-transparent px-3 py-2 md:px-6 md:py-4 rounded md:rounded-xl"
+                  className="w-full border-2 text-white text-sm md:text-base border-gray-600 bg-transparent px-3 py-2 md:px-6 md:py-4 rounded md:rounded-xl"
                 />
                 <ValidationError
                   prefix="Subject"
@@ -194,7 +200,7 @@ const ContactForm = () => {
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Message"
-                  className="w-full border md:border-2 text-sm md:text-base text-white border-gray-700 bg-transparent px-6 py-4 rounded md:rounded-xl"
+                  className="w-full border-2 text-sm md:text-base text-white border-gray-600 bg-transparent px-6 py-4 rounded md:rounded-xl"
                 ></textarea>
                 <ValidationError
                   prefix="Message"

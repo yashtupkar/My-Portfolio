@@ -13,7 +13,7 @@ const Footer = () => {
       <div className="flex flex-col md:flex-row w-full justify-between items-center md:items-end">
         <div className="w-full md:w-auto">
           <div>
-            <h1 className="text-3xl md:text-6xl text-gray-500 dark:text-white font-bold mb-4 md:mb-10">
+            <h1 className="text-3xl md:text-6xl text-gray-700 dark:text-white font-bold mb-4 md:mb-10">
               <span className="gradient-text">Let’s</span> work <br />
               together
             </h1>

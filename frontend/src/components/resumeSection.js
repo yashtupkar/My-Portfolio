@@ -297,7 +297,7 @@ function formatDateToMonthYear(inputDate) {
       >
         <div>
           <h1 className="gradient-text font-bold text-xl">Resume</h1>
-          <h2 className="text-3xl md:text-6xl text-gray-500 dark:text-white font-bold">
+          <h2 className="text-3xl md:text-6xl text-gray-700 dark:text-white font-bold">
             All over my <br /> details find here...
           </h2>
         </div>

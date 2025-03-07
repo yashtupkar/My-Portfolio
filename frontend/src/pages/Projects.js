@@ -36,7 +36,7 @@ const MyWork = () => {
         <div className=" flex h-full flex-col justify-center items-start md:items-center  md:p-10  rounded-3xl">
           <div className="flex flex-col w-full items-center">
             <h1 className="gradient-text font-semibold text-xl">Portfolio</h1>
-            <h1 className="text-3xl md:text-6xl text-gray-500 dark:text-white font-bold">
+            <h1 className="text-3xl md:text-6xl text-gray-700 dark:text-white font-bold">
               My Recent Works
             </h1>
           </div>

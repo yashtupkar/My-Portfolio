@@ -19,6 +19,16 @@ const About = () => {
     useEffect(() => {
       fetchAboutMe();
     }, []); 
+  
+   const downloadPDF = () => {
+     const pdfUrl = "http://localhost:1000/uploads/sample.pdf"; // Backend URL
+     const link = document.createElement("a");
+     link.href = pdfUrl;
+     link.download = "sample.pdf";
+     document.body.appendChild(link);
+     link.click();
+     document.body.removeChild(link);
+   };
    
   return (
     <div className="relative flex flex-col mt-20 p-4 md:p-0 md:mt-0 md:flex-row h-fit md:h-screen md:border border-gray-300 md:dark:border-gray-700 rounded-3xl items-center gap-2 ">
@@ -86,7 +96,10 @@ const About = () => {
             </div>
           ))}
         </div>
-        <button className="mt-4 md:mt-6 bg-custom-gradient text-white font-semibold md:text-xl px-6 py-4 text-sm rounded-md md:rounded-xl">
+        <button
+          onClick={downloadPDF}
+          className="mt-4 md:mt-6 bg-custom-gradient text-white font-semibold md:text-xl px-6 py-4 text-sm rounded-md md:rounded-xl"
+        >
           Download My Resume
         </button>
       </div>

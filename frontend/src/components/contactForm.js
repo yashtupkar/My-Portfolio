@@ -38,48 +38,56 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="w-full h-fit md:h-screen flex  items-center mt-10 md:mt-0 ">
+    <div className="w-full h-fit md:h-[80vh] flex  items-center mt-10 md:mt-0 ">
       <div className=" rounded-3xl p-2 md:px-6 md:py-10 flex flex-col md:flex-row w-full">
         <div
           data-aos="fade-down-right"
           className="w-full md:w-1/3 flex flex-col gap-6 "
         >
-          <div >
+          <div>
             <h1 className="gradient-text font-bold text-xl">Contact</h1>
-            <h2 className="text-3xl md:text-6xl text-gray-500 dark:text-white font-bold">
+            <h2 className="text-3xl md:text-6xl text-gray-700 dark:text-white font-bold">
               Let's <br /> connect
             </h2>
           </div>
 
           <div className=" gap-4 items-center p-2 hidden md:flex border-b border-gray-600">
-            <span className="text-3xl text-white">
+            <span className="text-3xl text-black dark:text-white">
               <CiMail />
             </span>
             <div>
-              <p className="text-lg text-gray-400">Email us</p>
-              <h1 className="text-xl font-bold text-gray-300">
+              <p className="text-lg text-gray-600 dark:text-gray-300">
+                Email us
+              </p>
+              <h1 className="text-xl font-bold text-gray-600 dark:text-gray-300">
                 yashtupkar6@gmail.com
               </h1>
             </div>
           </div>
 
           <div className="hidden md:flex gap-4 items-center p-2 border-b border-gray-600">
-            <span className="text-3xl text-white">
+            <span className="text-3xl text-black dark:text-white">
               <FiPhone />
             </span>
             <div>
-              <p className="text-lg text-gray-400">Call us</p>
-              <h1 className="text-xl font-bold text-gray-300">+917898297769</h1>
+              <p className="text-lg text-gray-600 dark:text-gray-300">
+                Call us
+              </p>
+              <h1 className="text-xl font-bold text-gray-600 dark:text-gray-300">
+                +917898297769
+              </h1>
             </div>
           </div>
 
           <div className="hidden md:flex gap-4 items-center p-2 border-b border-gray-600">
-            <span className="text-3xl text-white">
+            <span className="text-3xl text-black dark:text-white">
               <GrLocation />
             </span>
             <div>
-              <p className="text-lg text-gray-400">Location</p>
-              <h1 className="text-xl font-bold text-gray-300">
+              <p className="text-lg text-gray-600 dark:text-gray-300">
+                Location
+              </p>
+              <h1 className="text-xl font-bold text-gray-600 dark:text-gray-300">
                 Bhopal, Madhya Pradesh, India
               </h1>
             </div>
@@ -106,7 +114,7 @@ const ContactForm = () => {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Name"
-                  className="w-full border-2 text-white text-sm md:text-base border-gray-600 bg-transparent px-3 py-2 md:px-6 md:py-4 rounded md:rounded-xl"
+                  className="w-full border-2 text-black dark:text-white text-sm md:text-base border-gray-400 dark:border-gray-600 bg-transparent px-3 py-2 md:px-6 md:py-4 rounded md:rounded-xl"
                 />
                 <ValidationError
                   prefix="Name"
@@ -128,7 +136,7 @@ const ContactForm = () => {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Email"
-                  className="w-full border-2 text-sm md:text-base text-white border-gray-600 bg-transparent px-3 py-2 md:px-6 md:py-4 rounded md:rounded-xl"
+                  className="w-full border-2 text-sm md:text-base text-black dark:text-white border-gray-400 dark:border-gray-600 bg-transparent px-3 py-2 md:px-6 md:py-4 rounded md:rounded-xl"
                 />
                 <ValidationError
                   prefix="Email"
@@ -153,7 +161,7 @@ const ContactForm = () => {
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder="Phone no."
-                  className="w-full border-2 text-white text-sm md:text-base border-gray-600 bg-transparent px-3 py-2 md:px-6 md:py-4 rounded md:rounded-xl"
+                  className="w-full border-2 text-black dark:text-white text-sm md:text-base border-gray-400 dark:border-gray-600 bg-transparent px-3 py-2 md:px-6 md:py-4 rounded md:rounded-xl"
                 />
                 <ValidationError
                   prefix="Phone"
@@ -175,7 +183,7 @@ const ContactForm = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   placeholder="Subject"
-                  className="w-full border-2 text-white text-sm md:text-base border-gray-600 bg-transparent px-3 py-2 md:px-6 md:py-4 rounded md:rounded-xl"
+                  className="w-full border-2 text-black dark:text-white text-sm md:text-base border-gray-400 dark:border-gray-600 bg-transparent px-3 py-2 md:px-6 md:py-4 rounded md:rounded-xl"
                 />
                 <ValidationError
                   prefix="Subject"
@@ -200,7 +208,7 @@ const ContactForm = () => {
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Message"
-                  className="w-full border-2 text-sm md:text-base text-white border-gray-600 bg-transparent px-6 py-4 rounded md:rounded-xl"
+                  className="w-full border-2 text-sm md:text-base text-black dark:text-white border-gray-400 dark:border-gray-600 bg-transparent px-6 py-4 rounded md:rounded-xl"
                 ></textarea>
                 <ValidationError
                   prefix="Message"

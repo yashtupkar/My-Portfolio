@@ -66,33 +66,7 @@ const HeroSection = () => {
       isMounted = false;
     };
   }, []);
-    // const SocialLinks = [
-    //   {
-    //     title: "Instagram",
-    //     icon: <BsInstagram size={20} />,
-    //     url: ``,
-    //   },
-    //   {
-    //     title: "Linkedin",
-    //     icon: <IoLogoLinkedin size={20} />,
-    //     url: ``,
-    //   },
-    //   {
-    //     title: "Github",
-    //     icon: <BsGithub size={20} />,
-    //     url: "",
-    //   },
-    //   {
-    //     title: "Fiver",
-    //     icon: <TbBrandFiverr size={20} />,
-    //     url: "https://medium.com/@example",
-    //   },
-    //   {
-    //     title: "Twitter",
-    //     icon: <FaSquareXTwitter size={20} />,
-    //     url: "https://twitter.com/example",
-    //   },
-    // ];
+  
     const SocialLinks = [
       {
         title: "Instagram",
@@ -297,7 +271,12 @@ const HeroSection = () => {
           alt=""
           className=" h-full rounded-3xl w-full  object-cover  shadow-lg transform transition-transform duration-500 group-hover:scale-110"
         />
-        <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-500">
+        <div
+          onClick={() => {
+            navigate("/about");
+          }}
+          className="absolute cursor-pointer inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-500"
+        >
           <p className="text-white font-bold text-xl">Know more about me</p>
         </div>
       </div>

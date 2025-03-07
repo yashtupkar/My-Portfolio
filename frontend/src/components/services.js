@@ -107,16 +107,15 @@ const Services = () => {
       <div className="flex flex-col md:flex-row justify-between w-full">
         <div className="w-full md:w-1/2">
           <h1 className="gradient-text font-semibold text-xl">Services</h1>
-          <h1 className="text-4xl md:text-5xl text-gray-500 dark:text-white font-bold ">
+          <h1 className="text-4xl md:text-5xl text-gray-700 dark:text-white font-bold ">
             My specialties
           </h1>
         </div>
         <div className="flex-1 mt-2 md:mt-0 text-gray-400">
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim
-            blanditiis culpa nesciunt. Non iste vero, perferendis tempore ea
-            quod nemo, beatae quia mollitia, aliquam tempora consectetur
-            distinctio perspiciatis id voluptatibus!
+            Seamlessly enhance user experience with cutting-edge front-end
+            strategies while optimizing alternative platforms for my website’s
+            growth and efficiency.
           </p>
         </div>
       </div>
@@ -136,7 +135,7 @@ const Services = () => {
                   {service.title}
                 </h1>
                 <span className="text-gray-400 text-3xl md:text-xl dark:text-gray-500 -rotate-45">
-                  <FaArrowRight  />
+                  <FaArrowRight />
                 </span>
               </div>
             </div>

@@ -297,7 +297,7 @@ const AboutPage = () => {
           <Navbar />
           <div className="flex flex-col items-center mt-4 md:mt-10">
             <h1 className="gradient-text font-semibold text-xl">About</h1>
-            <h1 className="text-3xl md:text-6xl text-gray-500 dark:text-white font-bold">
+            <h1 className="text-3xl md:text-6xl text-gray-700 dark:text-white font-bold">
               About Me
             </h1>
           </div>

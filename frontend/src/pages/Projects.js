@@ -4,24 +4,27 @@ import Navbar from '../components/navbar'
 import axios from 'axios'
 import { FaArrowRight } from 'react-icons/fa'
 import Footer from '../components/footer'
+import {useNavigate} from "react-router-dom"
 
 
 const MyWork = () => {
+
+  const navigate = useNavigate();
     const apiUrl = process.env.REACT_APP_API_BASE_URL;
     const [projects, setProjects] = useState([]);
 
     const fetchProjects = async () => {
       try {
         const response = await axios.get(`${apiUrl}/api/v1/get-projects`);
-        // Filter projects where display is true and limit to 3
+
         const filteredProjects = response.data
           .filter((project) => project.display === true)
          
         setProjects(filteredProjects);
-        console.log("Fetched projects:", filteredProjects);
+ 
       } catch (error) {
         console.error("Error fetching projects:", error);
-        setProjects([]); // Set to an empty array on error
+        setProjects([]); 
       }
     };
 
@@ -45,6 +48,9 @@ const MyWork = () => {
               .reverse()
               .map((project, index) => (
                 <div
+                  onClick={() => {
+                    navigate(`/project-details/${project._id}`, { replace: true }); 
+                  }}
                   key={project._id}
                   className={`w-full bg-gray-50 dark:bg-gray-800 md:dark:bg-transparent border hover:bg-gray-200 md:hover: border-gray-300 dark:border-gray-700 dark:hover:bg-gray-800 rounded-3xl  p-4 flex gap-4 ${
                     index % 2 === 0

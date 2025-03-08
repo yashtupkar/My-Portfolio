@@ -6,29 +6,20 @@ import { FaUserCircle } from "react-icons/fa";
 const testimonials = [
   {
     id: 1,
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur expedita dolore nisi nam officiis magni.",
-    author: "Yash Tupkar",
+    text: "Great work on our portfolio website! It perfectly showcases our animations. Highly impressed with your creativity and dedication!",
+    author: "SnapNart Studio",
   },
   {
     id: 2,
-    text: "Modi nulla itaque illum consequuntur voluptatibus inventore quaerat quod eius possimus beatae harum assumenda!",
-    author: "Bhumika Singh",
+    text: "You did an amazing job! The portfolio site is user-friendly and beautifully designed.",
+    author: "Sultan Alam",
   },
-  {
-    id: 3,
-    text: "Amet consectetur adipisicing elit. Consequatur expedita dolore nisi nam officiis magni.",
-    author: "Rahul Verma",
-  },
-  {
-    id: 4,
-    text: "Modi nulla itaque illum consequuntur voluptatibus inventore quaerat quod eius possimus beatae harum assumenda!",
-    author: "Bhumika Singh",
-  },
-  {
-    id: 5,
-    text: "Amet consectetur adipisicing elit. Consequatur expedita dolore nisi nam officiis magni.",
-    author: "Rahul Verma",
-  },
+  // {
+  //   id: 3,
+  //   text: "",
+  //   author: "",
+  // },
+
 ];
 
 const TestimonialSection = () => {
@@ -46,7 +37,7 @@ const TestimonialSection = () => {
   useEffect(() => {
     const scrollContainer = scrollRef.current;
     if (scrollContainer) {
-      const scrollAmount = activeIndex * 320; // Adjust for centering
+      const scrollAmount = activeIndex * 320; 
       scrollContainer.scrollTo({ left: scrollAmount, behavior: "smooth" });
     }
   }, [activeIndex]);
@@ -72,7 +63,7 @@ const TestimonialSection = () => {
           className="flex flex-nowrap gap-6 transition-transform ease-in-out duration-700"
           style={{ transform: `translateX(-${activeIndex * 320}px)` }}
         >
-          {[...testimonials, ...testimonials].map(
+          {[...testimonials, ...testimonials, ...testimonials].map(
             ({ id, text, author }, index) => (
               <div
                 key={index}

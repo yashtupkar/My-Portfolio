@@ -41,6 +41,9 @@ const MyRecentWork = () => {
         {projects.map((project, index) => (
           <div
             key={project._id}
+            onClick={() => {
+              navigate(`/project-details/${project._id}`, { replace: true });
+            }}
             className={`w-full bg-gray-50 dark:bg-gray-800 md:dark:bg-transparent border hover:bg-gray-200 md:hover: border-gray-300 dark:border-gray-700 dark:hover:bg-gray-800 rounded-3xl  p-4 flex gap-4 ${
               index % 2 === 0
                 ? "flex-col md:flex-row"

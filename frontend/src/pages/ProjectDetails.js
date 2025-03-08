@@ -70,18 +70,18 @@ function formatDate(inputDate) {
                     {project?.title}
                   </h1>
                 </div>
-                <div className="w-full flex items-center gap-4 mt-2">
+                <div className="w-full flex items-center gap-2 md:gap-4 mt-2">
                   <a
                     href={`${project?.githubLink}`}
-                    className=" flex gap-1 text-sm md:text-base items-center font-semibold shadow-lg px-4 py-2 rounded-xl text-white bg-black"
+                    className=" flex gap-1 text-sm md:text-base items-center font-semibold shadow-lg px-2 md:px-4 py-1 md:py-2 rounded-md md:rounded-xl text-white bg-black"
                   >
                     <IoLogoGithub className="text-lg md:text-2xl" /> Github Code
                   </a>
                   <a
                     href={`${project?.liveDemoLink}`}
-                    className=" flex gap-1 items-center shadow-lg font-semibold px-4 py-2 rounded-xl text-white bg-gray-700"
+                    className=" flex gap-1 text-sm md:text-base items-center shadow-lg font-semibold px-2 md:px-4 py-1 md:py-2 rounded-md md:rounded-xl text-white bg-gray-700"
                   >
-                    Live Link <LuExternalLink className="text-xl" />
+                    Live Link <LuExternalLink className="text-lg md:text-xl" />
                   </a>
                 </div>
               </div>
@@ -142,7 +142,7 @@ function formatDate(inputDate) {
             </div>
           </div>
         </div>
-        <div className="w-full h-[500px] md:h-[1000px]"></div>
+        <div className="w-full h-[600px] md:h-[1000px]"></div>
       </section>
 
       <Footer />

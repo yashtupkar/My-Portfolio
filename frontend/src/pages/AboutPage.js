@@ -8,6 +8,7 @@ import Footer from '../components/footer';
 import { BsGithub, BsInstagram } from 'react-icons/bs';
 import { IoLogoLinkedin } from 'react-icons/io5';
 const AboutPage = () => {
+  const apiUrl = process.env.REACT_APP_API_BASE_URL;
       const [activeSection, setActiveSection] = useState("About Me");
       const [aboutMe, setAboutMe] = useState("");
 
@@ -18,9 +19,7 @@ const AboutPage = () => {
 
         const fetchHero = async () => {
           try {
-            const response = await axios.get(
-              "http://localhost:1000/api/v1/get-hero"
-            );
+            const response = await axios.get(`${apiUrl}/api/v1/get-hero`);
             if (isMounted) {
               if (response.data && response.data.length > 0) {
                 setHeroData(response.data[0]);
@@ -53,9 +52,7 @@ const AboutPage = () => {
 
       const fetchAboutMe = async () => {
         try {
-          const response = await axios.get(
-            "http://localhost:1000/api/v1/get-aboutMe"
-          );
+          const response = await axios.get(`${apiUrl}/api/v1/get-aboutMe`);
           setAboutMe(response.data[0]);
           console.log(response.data[0]);
         } catch (error) {
@@ -312,7 +309,7 @@ const AboutPage = () => {
             <div data-aos="zoom-out-right" className="w-full md:w-1/2">
               <div className="w-full h-full rounded-full flex justify-center items-center relative group cursor-pointer">
                 <img
-                  src={`http://localhost:1000/uploads/${aboutMe?.profileImage}`}
+                  src={`${apiUrl}/uploads/${aboutMe?.profileImage}`}
                   alt="Yash Tupkar"
                   className="rounded-3xl transition-all border-8 border-gray-200 dark:border-gray-700  group-hover:rotate-12"
                 />

@@ -4,6 +4,8 @@ import toast from "react-hot-toast";
 import DragDropFileUpload from "../DragDropFileUpload";
 
 const AboutMeForm = () => {
+
+  const apiUrl = process.env.REACT_APP_API_BASE_URL;
   const [formData, setFormData] = useState({
     _id:"",
     name: "",
@@ -115,7 +117,7 @@ if (!isEdited) {
 
   const fetchAboutMe = async() => { 
     try {
-      const response = await axios.get("http://localhost:1000/api/v1/get-aboutMe");
+      const response = await axios.get(`${apiUrl}/api/v1/get-aboutMe`);
       setFormData(response.data[0]);
       console.log(response.data[0]);
       
@@ -155,7 +157,7 @@ if (!isEdited) {
 
    try {
      const response = await axios.put(
-       `http://localhost:1000/api/v1/update-aboutMe/${formData._id}`,
+       `${apiUrl}/api/v1/update-aboutMe/${formData._id}`,
        formData
      );
      if (response.status === 200) {

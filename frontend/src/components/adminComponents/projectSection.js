@@ -5,6 +5,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 const ProjectSection = () => {
+    const apiUrl = process.env.REACT_APP_API_BASE_URL;
   const [projects, setProjects] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({
@@ -21,9 +22,7 @@ const ProjectSection = () => {
  
     const fetchProjects = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:1000/api/v1/get-projects"
-        );
+        const response = await axios.get(`${apiUrl}/api/v1/get-projects`);
         setProjects(response.data);
         console.log("Fetched projects:", response.data);
       } catch (error) {
@@ -77,7 +76,7 @@ const ProjectSection = () => {
     const Project = { ...formData };
 
     try {
-      await axios.post("http://localhost:1000/api/v1/add-project", Project);
+      await axios.post(`${apiUrl}/api/v1/add-project`, Project);
       toast.success("Project added successfully!");
       setShowForm(false);
       fetchProjects();
@@ -140,7 +139,7 @@ const handleDelete = async (id) => {
       console.error("Error: No project ID provided");
       return;
     }
-    await axios.delete(`http://localhost:1000/api/v1/delete-project/${id}`);
+    await axios.delete(`${apiUrl}/api/v1/delete-project/${id}`);
     console.log(`Deleted project with ID: ${id}`);
     setShowDeleteModal(false);
     toast.success(`Project deleted successfully`);
@@ -157,7 +156,7 @@ const handleDelete = async (id) => {
           return;
         }
         await axios.put(
-          `http://localhost:1000/api/v1/update-project/${id}`,
+          `${apiUrl}/api/v1/update-project/${id}`,
           updatedProject
         );
         toast.success(`Project updated successfully`);
@@ -181,9 +180,7 @@ const handleDelete = async (id) => {
    if (projectId) {
      const fetchProjectById = async (id) => {
        try {
-         const response = await axios.get(
-           `http://localhost:1000/api/v1/get-project/${id}`
-         );
+         const response = await axios.get(`${apiUrl}/api/v1/get-project/${id}`);
          console.log("Project Fetched By Id:", response.data); // Log fetched data
          setProjectData(response.data); // Set the fetched data
        } catch (error) {
@@ -238,7 +235,9 @@ const handleFileUpload = (fileUrl) => {
     ...prevData,
     imageUrl: fileUrl, // Update image URL in state
   }));
-};
+   };
+   
+   const apiUrl = process.env.REACT_APP_API_BASE_URL;
 
 
    return (
@@ -376,7 +375,7 @@ const handleFileUpload = (fileUrl) => {
       const updatedDisplay = !currentDisplay; // Toggle true/false
 
       const response = await axios.put(
-        `http://localhost:1000/api/v1/update-project/${projectId}`,
+        `${apiUrl}/api/v1/update-project/${projectId}`,
         { display: updatedDisplay }
       );
 
@@ -525,7 +524,10 @@ const handleFileUpload = (fileUrl) => {
 
             {/* File Upload & Submit Button */}
             <div className="w-1/2 h-full p-2 flex flex-col gap-2">
-              <DragDropFileUpload onFileUpload={handleFileUpload} height="63vh"/>
+              <DragDropFileUpload
+                onFileUpload={handleFileUpload}
+                height="63vh"
+              />
               <button
                 type="submit"
                 className="bg-green-600 text-white w-full py-2 rounded-md"
@@ -553,7 +555,7 @@ const handleFileUpload = (fileUrl) => {
                 >
                   <div className="w-1/3 h-40 bg-gray-300 dark:bg-gray-700 rounded-xl">
                     <img
-                      src={`http://localhost:1000/uploads/${project.imageUrl}`}
+                      src={`${apiUrl}/uploads/${project.imageUrl}`}
                       alt="Project Preview"
                       className="w-full h-full object-contain"
                     />

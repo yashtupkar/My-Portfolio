@@ -6,13 +6,13 @@ import { useNavigate } from "react-router-dom";
 const MyRecentWork = () => {
   const [projects, setProjects] = useState([]);
 
+  const apiUrl = process.env.REACT_APP_API_BASE_URL;
+
   const navigate = useNavigate();
 
   const fetchProjects = async () => {
     try {
-      const response = await axios.get(
-        "http://localhost:1000/api/v1/get-projects"
-      );
+      const response = await axios.get(`${apiUrl}/api/v1/get-projects`);
       // Filter projects where display is true and limit to 3
       const filteredProjects = response.data
         .filter((project) => project.display === true)
@@ -54,8 +54,7 @@ const MyRecentWork = () => {
             >
               <img
                 src={
-                  `http://localhost:1000/uploads/${project.imageUrl}` ||
-                  "/images/pihu.jpg"
+                  `${apiUrl}/uploads/${project.imageUrl}` || "/images/pihu.jpg"
                 }
                 alt={project.title}
                 className="rounded-xl md:rounded-3xl w-full floating-animation hover:"

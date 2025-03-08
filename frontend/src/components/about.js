@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
 const About = () => {
+  const apiUrl = process.env.REACT_APP_API_BASE_URL;
   const [aboutMe, setAboutMe] = useState("");
 
     const fetchAboutMe = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:1000/api/v1/get-aboutMe"
+          `${apiUrl}/api/v1/get-aboutMe`
         );
         setAboutMe(response.data[0]);
         console.log(response.data[0]);
@@ -21,7 +22,7 @@ const About = () => {
     }, []); 
   
    const downloadPDF = () => {
-     const pdfUrl = "http://localhost:1000/uploads/sample.pdf"; // Backend URL
+     const pdfUrl = `${apiUrl}/uploads/sample.pdf`; // Backend URL
      const link = document.createElement("a");
      link.href = pdfUrl;
      link.download = "sample.pdf";
@@ -42,7 +43,7 @@ const About = () => {
       <div data-aos="zoom-out-right" className="w-full md:w-1/2">
         <div className="w-full h-full rounded-full flex justify-center items-center relative group cursor-pointer">
           <img
-            src={`http://localhost:1000/uploads/${aboutMe?.profileImage}`}
+            src={`${apiUrl}/uploads/${aboutMe?.profileImage}`}
             alt="Yash Tupkar"
             className="rounded-full transition-all border-8 border-gray-200 dark:border-gray-700 duration-300 ease-in-out transform group-hover:scale-110 group-hover:rotate-12"
           />

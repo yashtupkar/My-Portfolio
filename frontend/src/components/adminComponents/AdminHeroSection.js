@@ -10,6 +10,8 @@ import toast from "react-hot-toast";
 
 const AdminHeroSection = () => {
 
+  const apiUrl = process.env.REACT_APP_API_BASE_URL;
+
 
   const [formData, setFormData] = useState({
     _id: "",
@@ -50,9 +52,7 @@ const AdminHeroSection = () => {
 
     const fetchHero = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:1000/api/v1/get-hero"
-        );
+        const response = await axios.get(`${apiUrl}/api/v1/get-hero`);
         if (isMounted) {
             if (response.data && response.data.length > 0) {
               setFormData(response.data[0]); 
@@ -78,7 +78,7 @@ const AdminHeroSection = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:1000/api/v1/update-hero-details/${formData._id}`,
+        `${apiUrl}/api/v1/update-hero-details/${formData._id}`,
         heroSectionDetails
       );
       toast.success("Hero details updated successfully!");
@@ -94,7 +94,7 @@ const AdminHeroSection = () => {
     <div>
       <div>
         <h1 className="text-2xl font-bold mb-2 text-gray-600 dark:text-white">
-          Hero Section 
+          Hero Section
         </h1>
         {!isEditing ? (
           <div className="flex gap-2">
@@ -281,7 +281,7 @@ const AdminHeroSection = () => {
               <div className="w-96 h-[80vh] border-2 border-dashed rounded-xl border-gray-300 dark:border-gray-500 flex justify-center items-center cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800 transition p-4">
                 <div className="flex justify-center items-center w-full h-full">
                   <img
-                    src={`http://localhost:1000/uploads/${formData.heroImg}`}
+                    src={`${apiUrl}/uploads/${formData.heroImg}`}
                     alt={`${formData.heroImg}`}
                     className="object-contain w-full h-full"
                   />

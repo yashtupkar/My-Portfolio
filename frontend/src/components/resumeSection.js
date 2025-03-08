@@ -3,6 +3,8 @@ import { FaArrowRight } from "react-icons/fa6";
 import axios from "axios";
 
 const Resume = () => {
+
+  const apiUrl = process.env.REACT_APP_API_BASE_URL;
   const [activeSection, setActiveSection] = useState("About Me");
   const [aboutMe, setAboutMe] = useState("");
 
@@ -13,9 +15,7 @@ const Resume = () => {
 
       const fetchHero = async () => {
         try {
-          const response = await axios.get(
-            "http://localhost:1000/api/v1/get-hero"
-          );
+          const response = await axios.get(`${apiUrl}/api/v1/get-hero`);
           if (isMounted) {
             if (response.data && response.data.length > 0) {
               setHeroData(response.data[0]);
@@ -49,9 +49,7 @@ function formatDateToMonthYear(inputDate) {
 
   const fetchAboutMe = async () => {
     try {
-      const response = await axios.get(
-        "http://localhost:1000/api/v1/get-aboutMe"
-      );
+      const response = await axios.get(`${apiUrl}/api/v1/get-aboutMe`);
       setAboutMe(response.data[0]);
       console.log(response.data[0]);
     } catch (error) {

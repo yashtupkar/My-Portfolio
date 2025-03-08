@@ -21,8 +21,10 @@ import { useNavigate } from 'react-router-dom';
 
 const HeroSection = () => {
 
+  const apiUrl = process.env.REACT_APP_API_BASE_URL;
+
   const downloadPDF = () => {
-    const pdfUrl = "http://localhost:1000/uploads/sample.pdf"; // Backend URL
+    const pdfUrl = `${apiUrl}/uploads/sample.pdf`; // Backend URL
     const link = document.createElement("a");
     link.href = pdfUrl;
     link.download = "sample.pdf";
@@ -46,9 +48,7 @@ const HeroSection = () => {
 
     const fetchHero = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:1000/api/v1/get-hero"
-        );
+        const response = await axios.get(`${apiUrl}/api/v1/get-hero`);
         if (isMounted) {
           if (response.data && response.data.length > 0) {
             setHeroData(response.data[0]);
@@ -264,10 +264,7 @@ const HeroSection = () => {
         className="h-full w-fit hidden  md:flex shadow-xl relative group items-center justify-center rounded-3xl overflow-hidden border border-gray-500"
       >
         <img
-          src={
-            `http://localhost:1000/uploads/${heroData?.heroImg}` ||
-            "/images/hero.png"
-          }
+          src={`${apiUrl}/uploads/${heroData?.heroImg}` || "/images/hero.png"}
           alt=""
           className=" h-full rounded-3xl w-full  object-cover  shadow-lg transform transition-transform duration-500 group-hover:scale-110"
         />

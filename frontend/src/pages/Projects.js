@@ -7,13 +7,12 @@ import Footer from '../components/footer'
 
 
 const MyWork = () => {
+    const apiUrl = process.env.REACT_APP_API_BASE_URL;
     const [projects, setProjects] = useState([]);
 
     const fetchProjects = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:1000/api/v1/get-projects"
-        );
+        const response = await axios.get(`${apiUrl}/api/v1/get-projects`);
         // Filter projects where display is true and limit to 3
         const filteredProjects = response.data
           .filter((project) => project.display === true)
@@ -60,7 +59,7 @@ const MyWork = () => {
                   >
                     <img
                       src={
-                        `http://localhost:1000/uploads/${project.imageUrl}` ||
+                        `${apiUrl}/uploads/${project.imageUrl}` ||
                         "/images/pihu.jpg"
                       }
                       alt={project.title}

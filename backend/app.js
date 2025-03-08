@@ -27,7 +27,9 @@ app.use("/api/v1", Testimonial);
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
-
+app.get("/", (req, res) => { 
+    res.send("Hello World!");  // replace with your own landing page
+})
 app.post("/upload", upload.single("file"), (req, res) => {
     console.log("File Uploaded:", req.file); // Debugging
 

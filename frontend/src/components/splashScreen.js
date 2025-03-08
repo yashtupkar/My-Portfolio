@@ -24,7 +24,7 @@ const SplashScreen = () => {
         showSplash ? "opacity-100" : "opacity-0"
       } ${throwSplash ? "transform -translate-y-full opacity-0" : ""}`}
     >
-      <h1 className="text-white text-3xl md:text-6xl font-syne font-extrabold">
+      <h1 className="text-white text-2xl md:text-6xl font-syne font-extrabold">
         {letters.map((letter, index) => (
           <span
             key={index}

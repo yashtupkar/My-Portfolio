@@ -20,6 +20,7 @@
     "react-router-dom": "^7.1.5",
     "react-scripts": "5.0.1",
     "react-scroll": "^1.9.3",
+    "react-spinners": "^0.15.0",
     "sheryjs": "^1.0.0-beta.0.1.8",
     "web-vitals": "^4.2.4"
   },

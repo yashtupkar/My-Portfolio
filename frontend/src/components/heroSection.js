@@ -24,10 +24,10 @@ const HeroSection = () => {
   const apiUrl = process.env.REACT_APP_API_BASE_URL;
 
   const downloadPDF = () => {
-    const pdfUrl = `${apiUrl}/uploads/sample.pdf`; // Backend URL
+    const pdfUrl = `${apiUrl}/uploads/Yashtupkar-resume.pdf`; // Backend URL
     const link = document.createElement("a");
     link.href = pdfUrl;
-    link.download = "sample.pdf";
+    link.download = "Yashtupkar-resume.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

@@ -40,6 +40,9 @@ app.post("/upload", upload.single("file"), (req, res) => {
     res.json({ filePath: `${req.file.filename}` });
 });
 
+app.get('/ping', (req,res)=>{
+    res.send("pong");
+})
 
 app.listen(process.env.PORT, () => {
     console.log(`Server is running on port ${process.env.PORT}`);

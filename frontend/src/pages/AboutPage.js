@@ -309,7 +309,7 @@ const AboutPage = () => {
             <div data-aos="zoom-out-right" className="w-full md:w-1/2">
               <div className="w-full h-full rounded-full flex justify-center items-center relative group cursor-pointer">
                 <img
-                  src={`${apiUrl}/uploads/${aboutMe?.profileImage}`}
+                  src="/images/about.png"
                   alt="Yash Tupkar"
                   className="rounded-3xl transition-all border-8 border-gray-200 dark:border-gray-700  group-hover:rotate-12"
                 />
@@ -338,9 +338,9 @@ const AboutPage = () => {
               </h1>
               <h1 className="text-3xl md:text-6xl font-bold mt-2 md:mt-4">
                 <span className="gradient-text">
-                  {aboutMe?.name?.split(" ")[0]}
+                  Yash
                 </span>{" "}
-                {aboutMe?.name?.split(" ")[1]}, <br />
+                Tupkar, <br />
                 <span>Full Stack Web Developer</span>
               </h1>
               <h1 className="text-2xl md:text-4xl font-semibold mt-2 md:mt-4">

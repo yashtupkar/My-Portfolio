@@ -192,9 +192,9 @@ const HeroSection = () => {
           </h1>
           <h1 className="text-3xl md:text-5xl font-extrabold">
             <span className="gradient-text mr-2">
-              {heroData?.name?.split(" ")[0]}
+              Yash
             </span>
-            {heroData?.name?.split(" ")[1]}
+           Tupkar
           </h1>
 
           <AnimatedText />
@@ -264,7 +264,7 @@ const HeroSection = () => {
         className="h-full w-fit hidden  md:flex shadow-xl relative group items-center justify-center rounded-3xl overflow-hidden border border-gray-500"
       >
         <img
-          src={`${apiUrl}/uploads/${heroData?.heroImg}` || "/images/hero.png"}
+          src="/images/hero.png"
           alt=""
           className=" h-full rounded-3xl w-full  object-cover  shadow-lg transform transition-transform duration-500 group-hover:scale-110"
         />

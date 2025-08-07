@@ -10,20 +10,21 @@ const MyRecentWork = () => {
 
   const navigate = useNavigate();
 
-  const fetchProjects = async () => {
-    try {
-      const response = await axios.get(`${apiUrl}/api/v1/get-projects`);
-      // Filter projects where display is true and limit to 3
-      const filteredProjects = response.data
-        .filter((project) => project.display === true)
-        .slice(0, 3);
-      setProjects(filteredProjects);
-      console.log("Fetched projects:", filteredProjects);
-    } catch (error) {
-      console.error("Error fetching projects:", error);
-      setProjects([]); // Set to an empty array on error
-    }
-  };
+const fetchProjects = async () => {
+  try {
+    const response = await axios.get(`${apiUrl}/api/v1/get-projects`);
+    // Filter projects where display is true, sort by date (newest first), and limit to 4
+    const filteredProjects = response.data
+      .filter((project) => project.display === true)
+      .sort((a, b) => new Date(b.date) - new Date(a.date)) // assuming there's a date field
+      .slice(0, 4);
+    setProjects(filteredProjects);
+    console.log("Fetched projects:", filteredProjects);
+  } catch (error) {
+    console.error("Error fetching projects:", error);
+    setProjects([]); // Set to an empty array on error
+  }
+};
 
   useEffect(() => {
     fetchProjects();

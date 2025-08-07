@@ -38,7 +38,7 @@ const MyRecentWork = () => {
         </h1>
       </div>
       <div className="flex flex-col gap-4 mt-6">
-        {projects.map((project, index) => (
+        {projects.slice().reverse().map((project, index) => (
           <div
             key={project._id}
             onClick={() => {
